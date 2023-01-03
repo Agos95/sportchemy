@@ -1,0 +1,6 @@
+module:
+  mounts:
+    - source: archetypes
+      target: archetypes
+    - source: layouts
+      target: layouts

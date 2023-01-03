@@ -10,5 +10,6 @@ The inspiration is the [SportsPress](https://wordpress.org/plugins/sportspress/)
 
 ## Roadmap
 
+- [ ] New `match`
 - [ ] Event importer from `csv`
 - [ ] Widgets and shortcodes for previous/next games
