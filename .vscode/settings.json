@@ -1,4 +1,4 @@
 {
     "frontMatter.framework.startCommand": "cd demo; hugo server -D",
-    "html.format.enable": false
+    "editor.formatOnSave": false
 }
