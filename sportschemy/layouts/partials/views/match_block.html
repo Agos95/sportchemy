@@ -1,5 +1,4 @@
 {{ $item := .item }}
-{{ $has_attachments := partial "functions/has_attachments" $item }}
 
 {{ $link := $item.RelPermalink }}
 {{ $target := "" }}
@@ -8,14 +7,31 @@
   {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
 {{ end }}
 
-{{/* Get summary. */}}
-{{ $summary := "" }}
-{{ if $item.Params.summary }}
-  {{ $summary = $item.Params.summary | markdownify | emojify }}
-{{ else if $item.Params.abstract }}
-  {{ $summary = $item.Params.abstract | markdownify | emojify | truncate (site.Params.abstract_length | default 135) }}
-{{ else if $item.Summary }}
-  {{ $summary = $item.Summary }}
-{{ end }}
-
-{{ $resource := partial "functions/get_featured_image.html" $item }}
+<div class="col-lg-4">
+  <div class="card text-center">
+    <div class="card-header">
+      {{ $item.details.date }}
+    </div>
+    <div class="row no-gutters align-items-center justify-content-center">
+      <div class="col-4 order-first">
+        <img src={{$item.home.img}}><br>
+       {{ $item.home.team }}
+      </div>
+      <div class="col-4 order-last">
+        <img src={{$item.away.img}}><br>
+        {{ $item.away.team }}
+      </div>
+      <div class="col-4 card-body">
+        <h4 class="card-title">
+          &nbsp;
+        </h4>
+        <div class="card-subtitle text-muted">
+          {{$item.details.league}}
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href={{$item.details.address.url}} target="_blank" class="card-link">{{$item.details.address.name}}</a>
+    </div>
+  </div>
+</div>
