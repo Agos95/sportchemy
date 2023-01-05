@@ -1,0 +1,25 @@
+.sport-match_block {
+    .card-title {
+        margin-top: 0rem;
+    }
+    img {
+        width: 50%;
+        display: inline;
+        padding-top: .25rem;
+    }
+    p.team {
+        font-size: medium;
+    }
+    .card-header {
+        font-size: medium;
+        padding: .1rem .5rem;
+    }
+    .card-body {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+    .card-footer {
+        padding: .1rem .5rem;
+        font-size: medium;
+    }
+}

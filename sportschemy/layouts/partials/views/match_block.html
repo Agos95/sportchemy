@@ -1,37 +1,37 @@
 {{ $item := .item }}
-
 {{ $link := $item.RelPermalink }}
-{{ $target := "" }}
-{{ if $item.Params.external_link }}
-  {{ $link = $item.Params.external_link }}
-  {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
-{{ end }}
+{{ $params := $item.Params}}
 
-<div class="col-lg-4">
+
+<div class="col-lg-4 sport-match_block">
   <div class="card text-center">
     <div class="card-header">
-      {{ $item.details.date }}
+      {{ time.Format "Mon, 2 Jan | 15:05" $params.date | title }}
     </div>
     <div class="row no-gutters align-items-center justify-content-center">
       <div class="col-4 order-first">
-        <img src={{$item.home.img}}><br>
-       {{ $item.home.team }}
+        <img src={{$params.home.img}}><br>
+       <p class="team">{{ $params.home.team }}</p>
       </div>
       <div class="col-4 order-last">
-        <img src={{$item.away.img}}><br>
-        {{ $item.away.team }}
+        <img src={{$params.away.img}}><br>
+        <p class="team">{{ $params.away.team }}</p>
       </div>
       <div class="col-4 card-body">
-        <h4 class="card-title">
-          &nbsp;
-        </h4>
+        <h3 class="card-title">
+          {{ if (eq $params.home.score "") | or (eq $params.away.score "")}}
+            &nbsp;
+          {{ else }}
+            {{printf "%v - %v" $params.home.score $params.away.score}}
+          {{ end }}
+        </h3>
         <div class="card-subtitle text-muted">
-          {{$item.details.league}}
+          {{$params.league}}
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <a href={{$item.details.address.url}} target="_blank" class="card-link">{{$item.details.address.name}}</a>
+      <a href={{$params.court.url}} target="_blank" class="card-link">{{$params.court.name}}</a>
     </div>
   </div>
 </div>

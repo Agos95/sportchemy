@@ -3,15 +3,15 @@ title: "{{ replace .Name "-" " " | title }}"
 summary:
 abstract:
 
+# (YYYY-MM-DD HH:mm:ss)
+date: {{ .Date }}
+
 # Match details
-details:
-  # (YYYY-MM-DD HH:mm:ss)
-  date: {{ .Date }}
+court:
+  name:
   address:
-    name:
-    street:
-    url:
-  league:
+  url:
+league:
 
 # Teams info
 home:

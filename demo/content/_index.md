@@ -6,13 +6,13 @@ type: landing
 
 sections:
   - block: collection
-    id: posts
+    id: match
     content:
       title: Matches
       subtitle: ''
-      text: 'Next'
+      text: 
       # Choose how many pages you would like to display (0 = all pages)
-      count: 5
+      count: 6
       # Filter on criteria
       filters:
         # The folders to display content from
@@ -31,7 +31,7 @@ sections:
       offset: 0
       # Field to sort by, such as Date or Title
       sort_by: 'Date'
-      sort_ascending: false
+      sort_ascending: true
     design:
       # Choose a listing view
       view: match_block

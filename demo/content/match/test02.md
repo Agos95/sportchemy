@@ -3,21 +3,20 @@ title: "Test01"
 summary:
 abstract:
 
-# Match details
-details:
-  # (YYYY-MM-DD HH:mm:ss)
-  date: 2023-01-07T17:52:28+01:00
+# (YYYY-MM-DD HH:mm:ss)
+date: 2023-01-07T17:52:28+01:00
+# Match details 
+court:
+  name: Palestra L.P. Barion
   address:
-    name: Palestra L.P. Barion
-    street:
-    url: https://goo.gl/maps/AT68Er399kgg4HKw5
-  league: Promozione
+  url: https://goo.gl/maps/AT68Er399kgg4HKw5
+league: Promozione
 
 # Teams info
 home:
   team: Pallacanestro Arcella
   img: https://www.playbasket.it/images/club/logo_016113_U.S.Arcella.png
-  score: 100
+  score: 101
 
 away:
   team: Pallacanestro Noventa
