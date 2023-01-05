@@ -5,10 +5,10 @@ date: 2022-10-24
 type: landing
 
 sections:
-  - block: match_collection
+  - block: sportchemy-collection
     id:
     content:
-      title: Match
+      title: Match Cards
       subtitle:
       text:
       page_type: match
@@ -32,7 +32,7 @@ sections:
       sort_ascending: true
     design:
       # Choose a listing view
-      view: match_block
+      view: sportchemy-card
       # Choose single or dual column layout
-      columns: '2'
+      columns: '1'
 ---

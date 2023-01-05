@@ -1,4 +1,4 @@
-# Sportschemy - Sports addon for [Wowchemy](https://wowchemy.com/) website builder
+# Sportchemy - Sport addon for [Wowchemy](https://wowchemy.com/) website builder
 
 [Wowchemy](https://wowchemy.com/) is an amazing website builder for [Hugo](https://gohugo.io/) SSG. Its main focus is on academic/scientific websites, but it can be used for any kind of content.
 
