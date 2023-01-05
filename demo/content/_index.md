@@ -6,19 +6,17 @@ type: landing
 
 sections:
   - block: collection
-    id: match
+    id:
     content:
       title: Matches
       subtitle: ''
-      text: 
+      text:
+      page_type: match
       # Choose how many pages you would like to display (0 = all pages)
       count: 6
       # Filter on criteria
       filters:
         # The folders to display content from
-        folders:
-          - match
-        author: ""
         category: ""
         tag: ""
         publication_type: ""
@@ -36,5 +34,5 @@ sections:
       # Choose a listing view
       view: match_block
       # Choose single or dual column layout
-      columns: '1'
+      columns: '2'
 ---
