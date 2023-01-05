@@ -34,5 +34,5 @@ sections:
       # Choose a listing view
       view: sportchemy-card
       # Choose single or dual column layout
-      columns: '1'
+      columns: '2'
 ---

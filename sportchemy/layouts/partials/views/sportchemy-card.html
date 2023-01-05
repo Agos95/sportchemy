@@ -2,8 +2,15 @@
 {{ $link := $item.RelPermalink }}
 {{ $params := $item.Params}}
 
+{{ $ncols := .page.design.columns }}
 
-<div class="col-lg-4">
+{{ if (eq $ncols "1")}}
+  {{ $container_class := "col-lg-4"}}
+{{ else }}
+  {{ $container_class := "col-lg-6"}}
+{{ end }}
+
+<div class="{{printf "%s" $container_class}}">
   <div class="card text-center sportchemy-card">
     <div class="card-header">
       {{ time.Format "Mon, 2 Jan | 15:05" $params.date | title }}
