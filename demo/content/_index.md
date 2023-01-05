@@ -5,11 +5,11 @@ date: 2022-10-24
 type: landing
 
 sections:
-  - block: collection
+  - block: match_collection
     id:
     content:
-      title: Matches
-      subtitle: ''
+      title: Match
+      subtitle:
       text:
       page_type: match
       # Choose how many pages you would like to display (0 = all pages)

@@ -11,17 +11,18 @@
 {{ if eq $items_count 0 }}
   {{ $items_count = 65535 }}
 {{ else }}
-  {{ $items_count = $items_count | default 6 }}
+  {{ $items_count = $items_count | default 5 }}
 {{ end }}
-
-{{ $page_type := "match"}}
 
 {{/* Query */}}
 {{ $query := site.RegularPages }}
 {{ $archive_page := "" }}
-{{ $query = where $query "Type" $page_type }}
-{{ $archive_page = site.GetPage "Section" $page_type }}
 
+{{/* Filters */}}
+{{ if $block.content.page_type }}
+  {{ $query = where $query "Type" $block.content.page_type }}
+  {{ $archive_page = site.GetPage "Section" $block.content.page_type }}
+{{ end }}
 {{ if $block.content.filters.folders }}
   {{ $folders := $block.content.filters.folders }}
   {{ $query = where $query "Section" "in" $folders }}
@@ -35,6 +36,14 @@
 {{ end }}
 {{ if $block.content.filters.category }}
   {{ $archive_page = site.GetPage (printf "categories/%s" (urlize $block.content.filters.category)) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $block.content.filters.publication_type }}
+  {{ $archive_page = site.GetPage (printf "publication_types/%s" $block.content.filters.publication_type) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $block.content.filters.author }}
+  {{ $archive_page = site.GetPage (printf "authors/%s" (urlize $block.content.filters.author)) }}
   {{ $query = $query | intersect $archive_page.Pages }}
 {{ end }}
 {{ if $block.content.filters.featured_only }}
@@ -67,7 +76,7 @@
 
 {{ $columns := $block.design.columns | default "2" }}
 
-<div class="col-12 {{if eq $columns "2"}}col-lg-8{{end}}">
+<div class="row col-12 {{if eq $columns "2"}}col-lg-10{{end}}">
 
   {{ with $block.content.text }}{{ . | emojify | markdownify }}{{ end }}
 
