@@ -25,8 +25,10 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - run: cd demo
+
       - name: Build
-        run: cd demo; hugo --minify
+        run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
