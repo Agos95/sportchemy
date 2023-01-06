@@ -19,7 +19,7 @@ marketing:
     local_business_type: ""
     org_name: ""
     description: "A sport extension for the Wowchemy website builder."
-    twitter: "wowchemy"
+    twitter: ""
   analytics:
     google_analytics: ""
     baidu_tongji: ""
@@ -105,5 +105,6 @@ extensions:
     branch: main
     local_backend: false
     netlify_csm: false
+    enable: false
   academicons:
     enable: false

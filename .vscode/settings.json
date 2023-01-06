@@ -1,4 +1,4 @@
 {
-    "frontMatter.framework.startCommand": "cd demo; hugo server -D",
+    "frontMatter.framework.startCommand": "cd demo && hugo server -D",
     "editor.formatOnSave": false
 }

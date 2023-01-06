@@ -9,7 +9,7 @@
   {{ $container_class = "col-lg-6"}}
 {{ end }}
 
-<div class="{{ $container_class }}">
+<div class="{{ $container_class }} col-md-6">
   <div class="card text-center sportchemy-card">
     <div class="card-header">
       {{ time.Format "Mon, 2 Jan | 15:05" $params.date | title }}
