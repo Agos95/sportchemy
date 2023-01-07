@@ -2,13 +2,20 @@
     .card-title {
         margin-top: 0rem;
     }
-    img {
+    .card-subtitle {
+        font-size: large;
+    }
+    .team-logo {
         width: 50%;
         display: inline;
         padding-top: .25rem;
     }
-    p.team {
+    .team-name {
         font-size: medium;
+    }
+    .team-winner {
+        font-weight: bold;
+        text-decoration: underline;
     }
     .card-header {
         font-size: medium;

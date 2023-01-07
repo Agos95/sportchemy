@@ -1,1 +1,8 @@
-{{ return dict "use_container" "true" "inject_section_heading" .wcBlock.design.columns}}
+{{/*
+    See `layouts/partials/functions/parse_block_v2.html`
+    https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/modules/wowchemy/layouts/partials/functions/parse_block_v2.html
+
+    This config file is required to use the builtin 1/2 columns layouts in custom blocks.
+*/}}
+
+{{ return dict "use_container" "true" "inject_section_heading" "true" }}

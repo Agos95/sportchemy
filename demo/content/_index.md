@@ -17,6 +17,8 @@ sections:
       # Filter on criteria
       filters:
         # The folders to display content from
+        folders: 
+          #- promo
         category: ""
         tag: ""
         publication_type: ""

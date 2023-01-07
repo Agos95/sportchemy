@@ -1,30 +1,38 @@
 ---
-title: "Test01"
+title: "Test02"
 summary:
-abstract:
 
-# (YYYY-MM-DD HH:mm:ss)
-date: 2023-01-07T17:52:28+01:00
-# Match details 
-court:
-  name: Palestra L.P. Barion
-  address:
-  url: https://goo.gl/maps/AT68Er399kgg4HKw5
-league: Promozione
+# match date (YYYY-MM-DD HH:mm:ss)
+date: 2022-01-07T19:26:06+01:00
+
+# Match details
+details:
+  season: 2022-23
+  league: promozione
+  match_day:
+  court:
+    name: Palestra L.P. Barion
+    address: Via L. Bressan, 3 - Loc.Arcella PADOVA (PD)
+    gmap:
+    lat:
+    long:
 
 # Teams info
 home:
-  team: Pallacanestro Arcella
-  img: https://www.playbasket.it/images/club/logo_016113_U.S.Arcella.png
-  score: 101
+  name: Pallacanestro Arcella
+  logo: https://www.playbasket.it/images/club/logo_016113_U.S.Arcella.png
 
 away:
-  team: Pallacanestro Noventa
-  img: https://www.playbasket.it/images/club/logo_003185_PallacanestroNoventaPol.Dil..png
-  score: 100
+  name: Pallacanestro Noventa
+  logo: https://www.playbasket.it/images/club/logo_003185_PallacanestroNoventaPol.Dil..png
 
-# Schedule page publish date (NOT event date).
-publishDate: 2023-01-04T17:52:28+01:00
+# Final Score
+score:
+  home: 81
+  away: 61
+
+# Schedule page publish date (NOT match date).
+publishDate: 2022-01-07T19:26:06+01:00
 
 tags: []
 

@@ -1,30 +1,37 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 summary:
-abstract:
 
-# (YYYY-MM-DD HH:mm:ss)
+# match date (YYYY-MM-DD HH:mm:ss)
 date: {{ .Date }}
 
 # Match details
-court:
-  name:
-  address:
-  url:
-league:
+details:
+  season:
+  league:
+  match_day:
+  court:
+    name:
+    address:
+    gmap:
+    lat:
+    long:
 
 # Teams info
 home:
-  team:
-  img:
-  score:
+  name:
+  logo:
 
 away:
-  team:
-  img:
-  score:
+  name:
+  logo:
 
-# Schedule page publish date (NOT event date).
+# Final Score
+score:
+  home:
+  away:
+
+# Schedule page publish date (NOT match date).
 publishDate: {{ .Date }}
 
 tags: []

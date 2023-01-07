@@ -1,6 +1,9 @@
-{{/* Wowchemy Blocks: Collection */}}
-{{/* Documentation: https://wowchemy.com/blocks/ */}}
-{{/* License: https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/LICENSE.md */}}
+{{/* Sportchemy Blocks: sportchemy-collection */}}
+{{/* Documentation:  */}}
+{{/*
+    This is an adaptation of the Wowchemy Collection block
+    https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/modules/wowchemy/layouts/partials/blocks/collection.html
+*/}}
 
 {{/* Initialise */}}
 {{ $page := .wcPage }}
@@ -14,15 +17,17 @@
   {{ $items_count = $items_count | default 5 }}
 {{ end }}
 
+{{ $page_type := "match" }}
+
 {{/* Query */}}
 {{ $query := site.RegularPages }}
 {{ $archive_page := "" }}
 
 {{/* Filters */}}
-{{ if $block.content.page_type }}
-  {{ $query = where $query "Type" $block.content.page_type }}
-  {{ $archive_page = site.GetPage "Section" $block.content.page_type }}
-{{ end }}
+
+{{ $query = where $query "Type" $page_type }}
+{{ $archive_page = site.GetPage "Section" $page_type }}
+
 {{ if $block.content.filters.folders }}
   {{ $folders := $block.content.filters.folders }}
   {{ $query = where $query "Section" "in" $folders }}
@@ -30,6 +35,7 @@
   {{ $main_folder := index $folders 0 }}
   {{ $archive_page = site.GetPage "Section" $main_folder }}
 {{ end }}
+
 {{ if $block.content.filters.tag }}
   {{ $archive_page = site.GetPage (printf "tags/%s" (urlize $block.content.filters.tag)) }}
   {{ $query = $query | intersect $archive_page.Pages }}
@@ -81,7 +87,7 @@
   {{ with $block.content.text }}{{ . | emojify | markdownify }}{{ end }}
 
   {{ range $index, $item := $query }}
-    {{ partial "functions/render_view" (dict "page" $block "item" . "view" ($block.design.view | default "compact") "index" $index) }}
+    {{ partial "functions/render_view" (dict "page" $block "item" . "view" ($block.design.view | default "sportchemy-card") "index" $index) }}
   {{end}}
 
   {{/* Archive link */}}
