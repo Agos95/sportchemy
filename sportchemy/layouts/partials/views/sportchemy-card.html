@@ -25,15 +25,15 @@
 {{ end }}
 
 {{/* Column type based on 1/2 columns layout */}}
-{{ $container_class := "col-lg-4"}}
-{{ if (ne .page.design.columns "1")}}
-  {{ $container_class = "col-lg-6"}}
+{{ $container_class := ""}}
+{{ if (eq .page.design.columns "1")}}
+  {{ $container_class = "col-lg-4"}}
 {{ end }}
 
 <div class="{{ $container_class }} col-md-6">
   <div class="card text-center sportchemy-card">
     <div class="card-header">
-      {{ time.Format "Mon, 2 Jan" $params.date | title }}
+      {{ time.Format "Mon, 2 Jan 2006" $params.date | title }}
     </div>
     <div class="row no-gutters align-items-center justify-content-center">
       <div class="col-4 order-first">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <a href={{ $gmap | default "#" }} target="_blank" class="card-link">{{$params.details.court.name}}</a>
+      <a href={{ $gmap }} target="_blank" class="card-link">{{$params.details.court.name}}</a>
     </div>
   </div>
 </div>

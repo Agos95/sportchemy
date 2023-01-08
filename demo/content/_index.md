@@ -17,15 +17,21 @@ sections:
       # Filter on criteria
       filters:
         # The folders to display content from
-        folders: 
-          #- promo
         category: ""
         tag: ""
-        publication_type: ""
         featured_only: false
         exclude_featured: false
         exclude_future: false
         exclude_past: false
+        season:
+          # - 2022-23
+        league:
+          # - promozione
+        team:
+          # - Pallacanestro Arcella
+        from:
+        to:
+        
       # Choose how many pages you would like to offset by
       # Useful if you wish to show the first item in the Featured widget
       offset: 0
