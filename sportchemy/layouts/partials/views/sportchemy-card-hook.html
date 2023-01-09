@@ -1,0 +1,8 @@
+{{ $query := .query }}
+{{ $block := .block }}
+
+<div class="row justify-content-center">
+  {{ range $index, $item := $query }}
+    {{ partial "functions/render_view" ( dict "page" $block "item" . "view" $.view "index" $index ) }}
+  {{end}}
+<div>

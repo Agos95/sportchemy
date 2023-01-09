@@ -14,7 +14,7 @@
 {{ if eq $items_count 0 }}
   {{ $items_count = 65535 }}
 {{ else }}
-  {{ $items_count = $items_count | default 5 }}
+  {{ $items_count = $items_count | default 6 }}
 {{ end }}
 
 {{ $page_type := "match" }}
@@ -89,13 +89,25 @@
 
 {{ $columns := $block.design.columns | default "1" }}
 
-<div class="row col-12 {{if eq $columns "2"}}col-lg-8{{end}} justify-content-center">
+<div class="col-12 {{if eq $columns "2"}}col-lg-8{{end}}">
 
   {{ with $block.content.text }}{{ . | emojify | markdownify }}{{ end }}
 
-  {{ range $index, $item := $query }}
-    {{ partial "functions/render_view" (dict "page" $block "item" . "view" ($block.design.view | default "sportchemy-card") "index" $index) }}
-  {{end}}
+  {{/*
+      Allow hooks for custom views.
+      Hooks are containers inside which each item is displayed.
+      For instance, the default "sportchemy-card" view requires cards to be placed
+      inside a <div class="row"> to display them correctly.
+  */}}
+
+  {{ $view_hook := printf "partials/views/%s-hook.html" $block.design.view }}
+  {{ if templates.Exists $view_hook }}
+    {{ partial $view_hook (dict "query" $query "block" $block "view" ($block.design.view | default "sportchemy-card") )}}
+  {{ else }}
+    {{ range $index, $item := $query }}
+      {{ partial "functions/render_view" (dict "page" $block "item" . "view" ($block.design.view | default "sportchemy-card") "index" $index) }}
+    {{end}}
+  {{ end }}
 
   {{/* Archive link */}}
   {{ $show_archive_link := $block.content.archive.enable | default (gt $count $items_count) }}

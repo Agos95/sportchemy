@@ -1,32 +1,49 @@
+.team-winner {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .sportchemy-card {
     .card-title {
         margin-top: 0rem;
     }
+
     .card-subtitle {
         font-size: large;
     }
+
     .team-logo {
         width: 50%;
         display: inline;
         padding-top: .25rem;
     }
+
     .team-name {
         font-size: medium;
     }
-    .team-winner {
-        font-weight: bold;
-        text-decoration: underline;
-    }
+
     .card-header {
         font-size: medium;
         padding: .1rem .5rem;
     }
+
     .card-body {
         padding-top: .5rem;
         padding-bottom: .5rem;
     }
+
     .card-footer {
         padding: .1rem .5rem;
         font-size: medium;
     }
+}
+
+.sportchemy-table {
+    text-align: center;
+    vertical-align: center;
+    td.team-logo {
+        width: 50px;
+        padding: .25em;
+    }
+
 }

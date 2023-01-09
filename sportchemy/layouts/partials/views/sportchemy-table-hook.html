@@ -1,0 +1,8 @@
+{{ $query := .query }}
+{{ $block := .block }}
+
+<table class="table table-striped table-hover table-responsive-md sportchemy-table">
+  {{ range $index, $item := $query }}
+    {{ partial "functions/render_view" ( dict "page" $block "item" . "view" $.view "index" $index ) }}
+  {{end}}
+<table>

@@ -21,7 +21,7 @@
 {{ $gmap := $params.details.court.gmap | default "#" }}
 
 {{ if (eq $gmap "#" | and (ne $address "")) }}
-  {{ $gmap = printf "https://maps.google.com?%s" ((querify "q" $address) | safeURL) }}
+  {{ $gmap = printf "https://maps.google.com?%s" (querify "q" $address) | safeURL }}
 {{ end }}
 
 {{/* Column type based on 1/2 columns layout */}}
