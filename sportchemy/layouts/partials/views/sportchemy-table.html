@@ -26,13 +26,14 @@
 
 <tr>
   <td class="date"> {{ time.Format "2 Jan" $params.date | title }} </td>
-  <td class="date"> {{ time.Format "15:05" $params.date | title }} </td>
   <td class="team-name">
     <span class="{{ $teamHome_class }}">{{ $params.home.name }}</span>
   </td>
   <!--td class="team-logo"> <img src={{ $params.home.logo }}> </td-->
   <td class="team-points">
-    {{ if (not (eq $ptHome "") | or (eq $params.score.away ""))}}
+    {{ if (eq $ptHome "") | or (eq $params.score.away "")}}
+      {{ time.Format "15:05" $params.date }}
+    {{ else }}
       <span class="{{ $teamHome_class }}">{{ $ptHome }}</span>&nbsp;-&nbsp;<span class="{{ $teamAway_class }}">{{ $ptAway }}</span>
     {{ end }}
   </td>

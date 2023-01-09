@@ -41,9 +41,14 @@
 .sportchemy-table {
     text-align: center;
     vertical-align: center;
+    border-bottom: 1px solid;
+    a {
+        text-decoration: underline;
+
+    }
+
     td.team-logo {
         width: 50px;
         padding: .25em;
     }
-
 }
