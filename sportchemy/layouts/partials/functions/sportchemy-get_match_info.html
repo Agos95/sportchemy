@@ -1,0 +1,31 @@
+{{ $params := . }}
+
+{{ $scoreHome := $params.score.home | default "" }}
+{{ $scoreAway := $params.score.away | default "" }}
+
+{{ $classHome := "" }}
+{{ $classAway := "" }}
+
+{{ if gt $scoreHome $scoreAway }}
+  {{ $classHome = "team-winner" }}
+{{ else if gt $scoreAway $scoreHome }}
+  {{ $classAway = "team-winner" }}
+{{ end }}
+
+{{/* Construct gmap link from court address if not present */}}
+{{ $address := $params.details.court.address | default "" }}
+{{ $gmap := $params.details.court.gmap | default "#" }}
+
+{{ if (eq $gmap "#" | and (ne $address "")) }}
+  {{ $gmap = printf "https://maps.google.com?%s" (querify "q" $address) | safeURL }}
+{{ end }}
+
+{{ $info := dict
+    "scoreHome" $scoreHome
+    "scoreAway" $scoreAway
+    "classHome" $classHome
+    "classAway" $classAway
+    "gmap" $gmap
+}}
+
+{{ return $info }}

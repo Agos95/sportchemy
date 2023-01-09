@@ -2,27 +2,8 @@
 {{ $link := $item.RelPermalink }}
 {{ $params := $item.Params}}
 
-{{/* Add class for winning team */}}
-
-{{ $ptHome := $params.score.home | default "" }}
-{{ $ptAway := $params.score.away | default "" }}
-
-{{ $teamHome_class := "" }}
-{{ $teamAway_class := "" }}
-
-{{ if gt $ptHome $ptAway }}
-  {{ $teamHome_class = "team-winner" }}
-{{ else if gt $ptAway $ptHome }}
-  {{ $teamAway_class = "team-winner" }}
-{{ end }}
-
-{{/* Construct gmap link from court address if not present */}}
-{{ $address := $params.details.court.address | default "" }}
-{{ $gmap := $params.details.court.gmap | default "#" }}
-
-{{ if (eq $gmap "#" | and (ne $address "")) }}
-  {{ $gmap = printf "https://maps.google.com?%s" (querify "q" $address) | safeURL }}
-{{ end }}
+{{/* Proces some match info */}}
+{{ $matchInfo := partial "functions/sportchemy-get_match_info" $params }}
 
 {{/* Column type based on 1/2 columns layout */}}
 {{ $container_class := ""}}
@@ -38,18 +19,18 @@
     <div class="row no-gutters align-items-center justify-content-center">
       <div class="col-4 order-first">
         <img src={{ $params.home.logo }} class="team-logo"><br>
-        <p class="team-name {{ $teamHome_class }}">{{ $params.home.name }}</p>
+        <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>
       </div>
       <div class="col-4 order-last">
         <img src={{ $params.away.logo }} class="team-logo"><br>
-        <p class="team-name {{ $teamAway_class }}">{{ $params.away.name }}</p>
+        <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
       </div>
       <div class="col-4 card-body">
         <h3 class="card-title">
-          {{ if (eq $ptHome "") | or (eq $params.score.away "")}}
+          {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
             {{ time.Format "15:05" $params.date }}
           {{ else }}
-            <span class="team-points {{ $teamHome_class }}">{{ $ptHome }}</span> - <span class="team-points {{ $teamAway_class }}">{{ $ptAway }}</span>
+            <span class="team-points {{ $matchInfo.classHome }}">{{ $matchInfo.scoreHome }}</span> - <span class="team-points {{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}</span>
           {{ end }}
         </h3>
         <div class="card-subtitle text-muted">
@@ -58,7 +39,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <a href={{ $gmap }} target="_blank" class="card-link">{{$params.details.court.name}}</a>
+      <a href={{ $matchInfo.gmap }} target="_blank" class="card-link">{{$params.details.court.name}}</a>
     </div>
   </div>
 </div>

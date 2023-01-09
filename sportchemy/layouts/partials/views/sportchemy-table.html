@@ -2,46 +2,29 @@
 {{ $link := $item.RelPermalink }}
 {{ $params := $item.Params}}
 
-{{/* Add class for winning team */}}
-
-{{ $ptHome := $params.score.home | default "" }}
-{{ $ptAway := $params.score.away | default "" }}
-
-{{ $teamHome_class := "" }}
-{{ $teamAway_class := "" }}
-
-{{ if gt $ptHome $ptAway }}
-  {{ $teamHome_class = "team-winner" }}
-{{ else if gt $ptAway $ptHome }}
-  {{ $teamAway_class = "team-winner" }}
-{{ end }}
-
-{{/* Construct gmap link from court address if not present */}}
-{{ $address := $params.details.court.address | default "" }}
-{{ $gmap := $params.details.court.gmap | default "#" }}
-
-{{ if (eq $gmap "#" | and (ne $address "")) }}
-  {{ $gmap = printf "https://maps.google.com?%s" (querify "q" $address) | safeURL }}
-{{ end }}
+{{/* Proces some match info */}}
+{{ $matchInfo := partial "functions/sportchemy-get_match_info" $params }}
 
 <tr>
   <td class="date"> {{ time.Format "2 Jan" $params.date | title }} </td>
   <td class="team-name">
-    <span class="{{ $teamHome_class }}">{{ $params.home.name }}</span>
+    <span class="{{ $matchInfo.classHome }}">{{ $params.home.name }}</span>
   </td>
   <!--td class="team-logo"> <img src={{ $params.home.logo }}> </td-->
   <td class="team-points">
-    {{ if (eq $ptHome "") | or (eq $params.score.away "")}}
+    {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
       {{ time.Format "15:05" $params.date }}
     {{ else }}
-      <span class="{{ $teamHome_class }}">{{ $ptHome }}</span>&nbsp;-&nbsp;<span class="{{ $teamAway_class }}">{{ $ptAway }}</span>
+      <span class="{{ $matchInfo.classHome }}">
+        {{ $matchInfo.scoreHome }}</span>&nbsp;-&nbsp;<span class="{{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}
+        </span>
     {{ end }}
   </td>
   <!--td class="team-logo"> <img src={{ $params.away.logo }}> </td-->
   <td class="team-name">
-    <span class="{{ $teamAway_class }}">{{ $params.away.name }}</span>
+    <span class="{{ $matchInfo.classAway }}">{{ $params.away.name }}</span>
   </td>
   <td>
-    <a href={{ $gmap }} target="_blank">{{$params.details.court.name}}</a>
+    <a href={{ $matchInfo.gmap }} target="_blank">{{ $params.details.court.name }}</a>
   </td>
 </tr>
