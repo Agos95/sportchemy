@@ -10,7 +10,7 @@ baseURL: "https://agos95.github.io/sportchemy" # Website URL
 ## LANGUAGE
 ############################
 
-defaultContentLanguage: it
+defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true

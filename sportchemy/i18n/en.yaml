@@ -1,0 +1,14 @@
+# sportchemy
+
+- id: sportchemy_team_home
+  translation: Home
+- id: sportchemy_team_away
+  translation: Away
+- id: sportchemy_date
+  translation: Date
+- id: sportchemy_time
+  translation: Time
+- id: sportchemy_score
+  translation: Score
+- id: sportchemy_court
+  translation: Court

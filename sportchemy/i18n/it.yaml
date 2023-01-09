@@ -1,0 +1,14 @@
+# sportchemy
+
+- id: sportchemy_team_home
+  translation: Locali
+- id: sportchemy_team_away
+  translation: Ospiti
+- id: sportchemy_date
+  translation: Data
+- id: sportchemy_time
+  translation: Ora
+- id: sportchemy_score
+  translation: Risultato
+- id: sportchemy_court
+  translation: Campo
