@@ -1,8 +1,15 @@
+/*
+    Custom CSS Style for sportchemy addon.
+*/
+
+
+// General
 .team-winner {
     font-weight: bold;
     text-decoration: underline;
 }
 
+// sportchemy-card view
 .sportchemy-card {
     .card-title {
         margin-top: 0rem;
@@ -38,13 +45,15 @@
     }
 }
 
+// sportchemy-table view
 .sportchemy-table {
     text-align: center;
-    vertical-align: center;
     border-bottom: 1px solid;
+    td {
+        vertical-align: middle;
+    }
     a {
         text-decoration: underline;
-
     }
 
     td.team-logo {
