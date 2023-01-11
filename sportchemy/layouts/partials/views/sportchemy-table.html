@@ -13,7 +13,7 @@
   <td class="team-logo"> <img src={{ $matchInfo.logoHome }}> </td>
   <td class="team-points">
     {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
-      {{ time.Format "15:05" $params.date }}
+      <span>{{ time.Format "15:05" $params.date }}</span>
     {{ else }}
       <span class="{{ $matchInfo.classHome }}">
         {{ $matchInfo.scoreHome }}</span>&nbsp;-&nbsp;<span class="{{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}

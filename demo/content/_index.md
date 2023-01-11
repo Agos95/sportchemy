@@ -70,7 +70,6 @@ sections:
           # - Pallacanestro Arcella
         from:
         to:
-        
       # Choose how many pages you would like to offset by
       # Useful if you wish to show the first item in the Featured widget
       offset: 0
@@ -81,5 +80,5 @@ sections:
       # Choose a listing view
       view: sportchemy-table
       # Choose single or dual column layout
-      columns: '2'
+      columns: '1'
 ---
