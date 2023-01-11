@@ -9,3 +9,5 @@ module:
     - source: assets/scss/blocks
       target: assets/scss/blocks
       includeFiles: '**.scss'
+    - source: assets/media/sportchemy
+      target: assets/media/sportchemy

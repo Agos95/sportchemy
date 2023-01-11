@@ -10,7 +10,7 @@
   <td class="team-name">
     <span class="{{ $matchInfo.classHome }}">{{ $params.home.name }}</span>
   </td>
-  <!--td class="team-logo"> <img src={{ $params.home.logo }}> </td-->
+  <td class="team-logo"> <img src={{ $matchInfo.logoHome }}> </td>
   <td class="team-points">
     {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
       {{ time.Format "15:05" $params.date }}
@@ -20,7 +20,7 @@
         </span>
     {{ end }}
   </td>
-  <!--td class="team-logo"> <img src={{ $params.away.logo }}> </td-->
+  <td class="team-logo"> <img src={{ $matchInfo.logoAway }}> </td>
   <td class="team-name">
     <span class="{{ $matchInfo.classAway }}">{{ $params.away.name }}</span>
   </td>

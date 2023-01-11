@@ -1,5 +1,7 @@
 {{ $params := . }}
 
+{{/* Get winner */}}
+
 {{ $scoreHome := $params.score.home | default "" }}
 {{ $scoreAway := $params.score.away | default "" }}
 
@@ -10,6 +12,24 @@
   {{ $classHome = "team-winner" }}
 {{ else if gt $scoreAway $scoreHome }}
   {{ $classAway = "team-winner" }}
+{{ end }}
+
+{{/* Get placeholder logo if logo not given */}}
+{{ $logoHome := $params.home.logo | default "sportchemy/team-placeholder.png" }}
+{{ if strings.HasPrefix $logoHome "http" }}
+  {{ $logoHome = $logoHome | safeURL }}
+{{ else }}
+  {{ $logoHome = resources.Get (path.Join "media" $logoHome) }}
+  {{ $logoHome = $logoHome.Fit "128x128 webp" }}
+  {{ $logoHome = $logoHome.RelPermalink }}
+{{ end }}
+{{ $logoAway := $params.away.logo | default "sportchemy/team-placeholder.png" }}
+{{ if strings.HasPrefix $logoAway "http" }}
+  {{ $logoAway = $logoAway | safeURL }}
+{{ else }}
+  {{ $logoAway = resources.Get (path.Join "media" $logoAway) }}
+  {{ $logoAway = $logoAway.Fit "128x128 webp" }}
+  {{ $logoAway = $logoAway.RelPermalink }}
 {{ end }}
 
 {{/* Construct gmap link from court address if not present */}}
@@ -25,7 +45,9 @@
     "scoreAway" $scoreAway
     "classHome" $classHome
     "classAway" $classAway
-    "gmap" $gmap
+    "logoHome"  $logoHome
+    "logoAway"  $logoAway
+    "gmap"      $gmap
 }}
 
 {{ return $info }}

@@ -49,15 +49,19 @@
 .sportchemy-table {
     text-align: center;
     border-bottom: 1px solid;
+
     td {
         vertical-align: middle;
     }
+
     a {
         text-decoration: underline;
     }
 
     td.team-logo {
-        width: 50px;
+        max-width: 50px;
+        min-width: 25px;
+        max-height: 50px;
         padding: .25em;
     }
 }

@@ -18,11 +18,11 @@
     </div>
     <div class="row no-gutters align-items-center justify-content-center">
       <div class="col-4 order-first">
-        <img src={{ $params.home.logo }} class="team-logo"><br>
+        <img src={{ $matchInfo.logoHome }} class="team-logo"><br>
         <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>
       </div>
       <div class="col-4 order-last">
-        <img src={{ $params.away.logo }} class="team-logo"><br>
+        <img src={{ $matchInfo.logoAway }} class="team-logo"><br>
         <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
       </div>
       <div class="col-4 card-body">
