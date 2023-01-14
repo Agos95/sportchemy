@@ -1,3 +1,9 @@
+# Hugo
+.hugo_build.lock
+
+# sportchemy-league-manager
+sportchemy-league-manager/match/**
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

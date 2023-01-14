@@ -1,4 +1,8 @@
 {
     "frontMatter.framework.startCommand": "cd demo && hugo server -D",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.formatOnSave": false
+    },
+    "python.terminal.activateEnvInCurrentTerminal": true,
 }
