@@ -5,7 +5,7 @@ import csv
 import yaml
 from argparse import ArgumentParser
 
-from archetype import DEFAULT
+from match import Match
 
 # %%
 
@@ -24,20 +24,6 @@ def parse_args():
 # %%
 
 
-def create_match(row):
-    match = DEFAULT
-    match["home"]["name"] = row["home"]
-    match["away"]["name"] = row["away"]
-    match["date"] = f"{row['date']} {row['time']}"
-    match["court"] = row['court']
-
-    match["title"] = f"{row['home']} vs {row['away']}"
-    match["publishDate"] = match["date"]
-
-    return match
-# %%
-
-
 def main(args):
     matches = []
     with open(args["csv"], "r") as f:
@@ -45,16 +31,12 @@ def main(args):
         data = csv.DictReader(f, fieldnames=header, delimiter=",", quotechar='"',
                               skipinitialspace=True)
         for row in data:
-            matches.append(row)
+            matches.append(Match.from_csv(row))
 
     os.makedirs(args["dst"], exist_ok=True)
 
     for match in matches:
-        match = create_match(match)
-        fname = f"{match['date']}_{match['home']['name']}-{match['away']['name']}.md"
-        with open(os.path.join(args["dst"], fname), "w") as f:
-            content = "---\n" + yaml.dump(match) + "\n---"
-            f.write(content)
+        match.write_file(folder=args["dst"])
 
 
 # %%
