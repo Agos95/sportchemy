@@ -7,7 +7,7 @@ from datetime import datetime
 
 # %%
 
-DATETIME_FORMAT = "%Y-%m-%d %H:%M"
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # %%
 
@@ -51,7 +51,7 @@ class Match():
                     setattr(self, k, v)
 
     @classmethod
-    def from_csv(cls, csv):
+    def from_csv(cls, csv, **kwargs):
         records = defaultdict(dict)
         # construct match datetime form date and time columns if present
         try:
@@ -73,7 +73,7 @@ class Match():
             else:
                 records[k] = v
 
-        return cls(**records)
+        return cls(**records, **kwargs)
 
     def get_dict(self):
         return {
@@ -92,9 +92,17 @@ class Match():
             "featured": self.featured
         }
 
-    def write_file(self, fname=None, folder=""):
+    def save(self, fname=None, folder="", season_folder=True, league_folder=True):
         if fname is None:
             fname = f"{self.date.strftime(DATETIME_FORMAT)}_{self.home['name']}-{self.away['name']}.md"
+        if season_folder and self.season is not None:
+            folder = os.path.join(folder, self.season)
+        if league_folder and self.league is not None:
+            folder = os.path.join(folder, self.league)
+
+        if not os.path.exists(folder):
+            os.makedirs(folder, exist_ok=True)
+
         fname = os.path.join(folder, fname)
 
         frontmatter = "---\n" + \
