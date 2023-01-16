@@ -5,18 +5,6 @@ summary:
 # match date (YYYY-MM-DD HH:mm:ss)
 date: {{ .Date }}
 
-# Match details
-details:
-  season:
-  league:
-  match_day:
-  court:
-    name:
-    address:
-    gmap:
-    lat:
-    long:
-
 # Teams info
 home:
   name:
@@ -30,6 +18,17 @@ away:
 score:
   home:
   away:
+
+# Match details
+season:
+league:
+matchDay:
+court:
+  name:
+  address:
+  link:
+  lat:
+  long:
 
 # Schedule page publish date (NOT match date).
 publishDate: {{ .Date }}

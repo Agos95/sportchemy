@@ -34,12 +34,12 @@
           {{ end }}
         </h3>
         <div class="card-subtitle text-muted">
-          {{ $params.details.league | title }}
+          {{ $params.league | title }}
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <a href={{ $matchInfo.gmap }} target="_blank" class="card-link">{{$params.details.court.name}}</a>
+      <a href={{ $matchInfo.link }} target="_blank" class="card-link">{{ $params.court.name | default "&nbsp;" | safeHTML }}</a>
     </div>
   </div>
 </div>

@@ -19,11 +19,11 @@ class Match():
         self.date = None
         self.season = None
         self.league = None
-        self.match_day = None
+        self.matchDay = None
         self.court = {
             "name": None,
             "address": None,
-            "gmap": None,
+            "link": None,
             "lat": None,
             "long": None
         }
@@ -65,7 +65,7 @@ class Match():
         for k, v in csv.items():
             if k in ["home", "away", "court"]:
                 records[k].update({"name": v})
-            elif k in ["address", "gmap"]:
+            elif k in ["address", "link"]:
                 records["court"].update({k: v})
             elif k == "score":
                 home, away = v.split("-")
@@ -80,15 +80,13 @@ class Match():
             "title": self.title,
             "summary": self.summary,
             "date": self.date if self.date is None else self.date.strftime(DATETIME_FORMAT),
-            "details": {
-                "season": self.season,
-                "league": self.league,
-                "match_day": self.match_day,
-                "court": self.court
-            },
             "home": self.home,
             "away": self.away,
             "score": self.score,
+            "season": self.season,
+            "league": self.league,
+            "matchDay": self.matchDay,
+            "court": self.court,
             "publishDate": self.publishDate.strftime(DATETIME_FORMAT),
             "tags": self.tags,
             "featured": self.featured

@@ -33,11 +33,11 @@
 {{ end }}
 
 {{/* Construct gmap link from court address if not present */}}
-{{ $address := $params.details.court.address | default "" }}
-{{ $gmap := $params.details.court.gmap | default "#" }}
+{{ $address := $params.court.address | default "" }}
+{{ $link := $params.court.link | default "#" }}
 
-{{ if (eq $gmap "#" | and (ne $address "")) }}
-  {{ $gmap = printf "https://maps.google.com?%s" (querify "q" $address) | safeURL }}
+{{ if (eq $link "#" | and (ne $address "")) }}
+  {{ $link = printf "https://maps.google.com?%s" (querify "q" $address) | safeURL }}
 {{ end }}
 
 {{ $info := dict
@@ -47,7 +47,7 @@
     "classAway" $classAway
     "logoHome"  $logoHome
     "logoAway"  $logoAway
-    "gmap"      $gmap
+    "link"      $link
 }}
 
 {{ return $info }}

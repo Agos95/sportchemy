@@ -6,16 +6,15 @@ summary:
 date: 2024-01-07T19:26:06+01:00
 
 # Match details
-details:
-  season: 2022-23
-  league: promozione
-  match_day:
-  court:
-    name: Palestra L.P. Barion
-    address: Via L. Bressan, 3 - Loc.Arcella PADOVA (PD)
-    gmap:
-    lat:
-    long:
+season: 2022-23
+league: promozione
+match_day:
+court:
+  name: Palestra L.P. Barion
+  address: Via L. Bressan, 3 - Loc.Arcella PADOVA (PD)
+  link:
+  lat:
+  long:
 
 # Teams info
 home:
