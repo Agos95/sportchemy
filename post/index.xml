@@ -54,7 +54,7 @@
 &lt;p>&lt;a href="https://wowchemy.com/docs/customization" target="_blank" rel="noopener">Choose a stunning &lt;strong>theme&lt;/strong> and &lt;strong>font&lt;/strong>&lt;/a> for your site. Themes are fully customizable.&lt;/p>
 &lt;h2 id="license">License&lt;/h2>
 &lt;p>Copyright 2016-present &lt;a href="https://georgecushen.com" target="_blank" rel="noopener">George Cushen&lt;/a>.&lt;/p>
-&lt;p>Released under the &lt;a href="https://github.com/wowchemy/wowchemy-hugo-themes/blob/master/LICENSE.md" target="_blank" rel="noopener">MIT&lt;/a> license.&lt;/p></description></item><item><title>Writing technical content in Markdown</title><link>https://agos95.github.io/sportchemy/post/writing-technical-content/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://agos95.github.io/sportchemy/post/writing-technical-content/</guid><description>&lt;p>Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.&lt;/p>
+&lt;p>Released under the &lt;a href="https://github.com/wowchemy/wowchemy-hugo-themes/blob/master/LICENSE.md" target="_blank" rel="noopener">MIT&lt;/a> license.&lt;/p></description></item><item><title>Writing technical content in Markdown</title><link>https://agos95.github.io/sportchemy/post/writing-technical-content/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0200</pubDate><guid>https://agos95.github.io/sportchemy/post/writing-technical-content/</guid><description>&lt;p>Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.&lt;/p>
 &lt;p>&lt;strong>Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.&lt;/strong>&lt;/p>
 &lt;p>On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Wowchemy.&lt;/p>
 &lt;h2 id="examples">Examples&lt;/h2>
@@ -145,7 +145,7 @@ console.log('code block');
 &lt;p>Wowchemy supports the popular &lt;a href="https://plot.ly/" target="_blank" rel="noopener">Plotly&lt;/a> format for interactive charts.&lt;/p>
 &lt;p>Save your Plotly JSON in your page folder, for example &lt;code>line-chart.json&lt;/code>, and then add the &lt;code>{{&amp;lt; chart data=&amp;quot;line-chart&amp;quot; &amp;gt;}}&lt;/code> shortcode where you would like the chart to appear.&lt;/p>
 &lt;p>Demo:&lt;/p>
-&lt;div id="chart-618479523" class="chart">&lt;/div>
+&lt;div id="chart-273816954" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -154,7 +154,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./line-chart.json", function(chart) {
-Plotly.plot('chart-618479523', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-273816954', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
