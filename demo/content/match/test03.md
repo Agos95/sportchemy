@@ -3,7 +3,7 @@ title: "Test03"
 summary:
 
 # match date (YYYY-MM-DD HH:mm:ss)
-date: 2024-01-07T19:26:06+01:00
+date: 2024-01-07 19:26:06
 
 # Match details
 season: 2022-23
@@ -31,7 +31,7 @@ score:
   away: 
 
 # Schedule page publish date (NOT match date).
-publishDate: 2023-01-07T19:26:06+01:00
+publishDate: 2023-01-07 19:26:06
 
 tags: []
 

@@ -7,7 +7,8 @@ from datetime import datetime
 
 # %%
 
-DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+DATETIME_FORMAT = "%Y-%m-%d %H:%M"
+HUGO_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # %%
 
@@ -79,7 +80,7 @@ class Match():
         return {
             "title": self.title,
             "summary": self.summary,
-            "date": self.date if self.date is None else self.date.strftime(DATETIME_FORMAT),
+            "date": self.date if self.date is None else self.date.strftime(HUGO_DATETIME_FORMAT),
             "home": self.home,
             "away": self.away,
             "score": self.score,
@@ -87,7 +88,7 @@ class Match():
             "league": self.league,
             "matchDay": self.matchDay,
             "court": self.court,
-            "publishDate": self.publishDate.strftime(DATETIME_FORMAT),
+            "publishDate": self.publishDate.strftime(HUGO_DATETIME_FORMAT),
             "tags": self.tags,
             "featured": self.featured
         }

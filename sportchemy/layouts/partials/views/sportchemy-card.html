@@ -16,7 +16,7 @@
     <div class="card-header">
       {{ time.Format "Mon, 2 Jan 2006" $params.date | title }}
     </div>
-    <div class="row no-gutters align-items-center justify-content-center">
+    <div class="row no-gutters align-items-start justify-content-center">
       <div class="col-4 order-first">
         <img src={{ $matchInfo.logoHome }} class="team-logo"><br>
         <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>

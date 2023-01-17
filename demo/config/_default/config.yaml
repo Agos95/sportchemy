@@ -14,6 +14,7 @@ defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
+timeZone: Europe/Rome
 
 ############################
 ## MODULES
