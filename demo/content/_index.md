@@ -38,6 +38,8 @@ sections:
       # Field to sort by, such as Date or Title
       sort_by: 'Date'
       sort_ascending: true
+      archive:
+        enable: false
     design:
       # Choose a listing view
       view: sportchemy-card
@@ -76,6 +78,8 @@ sections:
       # Field to sort by, such as Date or Title
       sort_by: 'Date'
       sort_ascending: true
+      archive:
+        enable: false
     design:
       # Choose a listing view
       view: sportchemy-table

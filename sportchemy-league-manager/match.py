@@ -78,7 +78,8 @@ class Match():
 
     def get_dict(self):
         return {
-            "title": self.title,
+            "title": self.title if self.title is not None else
+            f"{self.home['name']} vs {self.away['name']}",
             "summary": self.summary,
             "date": self.date if self.date is None else self.date.strftime(HUGO_DATETIME_FORMAT),
             "home": self.home,
