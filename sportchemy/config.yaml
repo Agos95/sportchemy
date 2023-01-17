@@ -8,6 +8,6 @@ module:
       target: layouts
     - source: assets/scss/blocks
       target: assets/scss/blocks
-      includeFiles: '**.scss'
+      includeFiles: "**.scss"
     - source: assets/media/sportchemy
       target: assets/media/sportchemy

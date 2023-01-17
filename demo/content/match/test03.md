@@ -7,7 +7,7 @@ date: 2024-01-07 19:26:06
 
 # Match details
 season: 2022-23
-league: promozione
+league: under 13
 match_day:
 court:
   name: Palestra L.P. Barion

@@ -7,7 +7,7 @@ date: 2023-01-07T19:26:06+01:00
 
 # Match details
 season: 2022-23
-league: promozione
+league: under 13
 match_day:
 court:
   name: Palestra L.P. Barion

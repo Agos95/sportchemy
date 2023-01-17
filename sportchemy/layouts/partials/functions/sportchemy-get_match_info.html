@@ -15,7 +15,7 @@
 {{ end }}
 
 {{/* Get placeholder logo if logo not given */}}
-{{ $logoHome := $params.home.logo | default "sportchemy/team-placeholder.png" }}
+{{ $logoHome := $params.home.logo | default (index site.Data.sportchemy.team_logo $params.home.name ) | default "sportchemy/team-placeholder.png" }}
 {{ if strings.HasPrefix $logoHome "http" }}
   {{ $logoHome = $logoHome | safeURL }}
 {{ else }}
@@ -23,7 +23,7 @@
   {{ $logoHome = $logoHome.Fit "128x128 webp" }}
   {{ $logoHome = $logoHome.RelPermalink }}
 {{ end }}
-{{ $logoAway := $params.away.logo | default "sportchemy/team-placeholder.png" }}
+{{ $logoAway := $params.away.logo | default (index site.Data.sportchemy.team_logo $params.away.name ) | default "sportchemy/team-placeholder.png" }}
 {{ if strings.HasPrefix $logoAway "http" }}
   {{ $logoAway = $logoAway | safeURL }}
 {{ else }}
