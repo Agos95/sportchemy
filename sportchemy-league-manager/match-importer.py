@@ -13,7 +13,7 @@ from match import Match
 def parse_args():
     parser = ArgumentParser(prog="Sportchemy Match Importer",
                             description="Import matches from CSV file.")
-    parser.add_argument("--csv", type=str, help="CSV file path.")
+    parser.add_argument("csv", type=str, help="CSV file path.")
     parser.add_argument(
         "-d", "--dst", default="content/match/", help="Folder to save imported matches ['content/match/'].")
     parser.add_argument("--season", default=None,
@@ -30,7 +30,8 @@ def parse_args():
 def main(args):
     matches = []
     with open(args["csv"], "r") as f:
-        header = next(f).rstrip().split(",")
+        header = next(f).strip().split(",")
+        header = [h.strip() for h in header]
         data = csv.DictReader(f, fieldnames=header, delimiter=",", quotechar='"',
                               skipinitialspace=True)
         for row in data:
