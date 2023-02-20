@@ -42,7 +42,7 @@ sections:
         enable: false
     design:
       # Choose a listing view
-      view: sportchemy-card
+      view: sportchemy-card-view
       # Choose single or dual column layout
       columns: '1'
 
@@ -82,7 +82,7 @@ sections:
         enable: false
     design:
       # Choose a listing view
-      view: sportchemy-table
+      view: sportchemy-table-view
       # Choose single or dual column layout
       columns: '1'
 ---

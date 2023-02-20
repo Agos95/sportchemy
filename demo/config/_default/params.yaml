@@ -6,8 +6,8 @@
 # Appearance
 
 appearance:
-  theme_day: minimal
-  theme_night: minimal
+  theme_day: basket
+  theme_night: basket
   font: minimal
   font_size: L
 

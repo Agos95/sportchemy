@@ -1,0 +1,45 @@
+# Theme metadata
+name = "Basket"
+
+[light]
+# Primary
+primary = "#FF7B08"
+# Background
+background = "#CBCBCB"
+
+# Menu
+menu_primary = "#FF7B08"
+menu_text = "#FFFFFF"
+menu_text_active = "#000000"
+menu_title = "#000000"
+
+# Links
+link = "#000000"
+link_hover = "#FF7B08"
+link_decoration = "underline"
+
+# Home sections
+home_section_odd = "#CBCBCB"
+home_section_even = "#EAEAEA"
+
+[dark]
+# Primary
+primary = "#FF7B08"
+# Background
+background = "#4c4c4c"
+
+# Menu
+menu_primary = "#000000"
+menu_text = "#FF7B08"
+menu_text_active = "#FFFFFF"
+menu_title = "#FF7B08"
+
+
+# Links
+link = "#FFFFFF"
+link_hover = "#FF7B08"
+link_decoration = "underline"
+
+# Home sections
+home_section_odd = "#4c4c4c"
+home_section_even = "#2d2d2d"
