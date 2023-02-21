@@ -14,12 +14,16 @@ HUGO_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 
 class Match():
+    """
+    Custom 'Match' object.
+    """
     def __init__(self, **kwargs) -> None:
         self.title = None
         self.summary = None
         self.date = None
         self.season = None
         self.league = None
+        self.tournament = None
         self.matchDay = None
         self.court = {
             "name": None,
@@ -52,12 +56,24 @@ class Match():
                     setattr(self, k, v)
 
     @classmethod
-    def from_csv(cls, csv, **kwargs):
+    def from_csv(cls, csv, dt_format=DATETIME_FORMAT, **kwargs):
+        """
+        'Match' constructor from a csv file format.
+
+        Parameters
+        ----------
+        csv : dict
+            Dict representing a single row of a csv file. Each column is a different parameter for the 'Match' object.
+        dt_format : str, default DATETIME_FORMAT ["%Y-%m-%d %H:%M"]
+            Custom datetime format for the records in the csv.
+        **kwargs
+            Additional arguments to customize 'Match' parameters.
+        """
         records = defaultdict(dict)
         # construct match datetime form date and time columns if present
         try:
             date = f"{csv.pop('date')} {csv.pop('time')}"
-            date = datetime.strptime(date, DATETIME_FORMAT)
+            date = datetime.strptime(date, dt_format)
             records["date"] = date
         except:
             pass
@@ -77,6 +93,9 @@ class Match():
         return cls(**records, **kwargs)
 
     def get_dict(self):
+        """
+        Return the dictionary representation of the 'Match' object.
+        """
         return {
             "title": self.title if self.title is not None else
             f"{self.home['name']} vs {self.away['name']}",
@@ -87,6 +106,7 @@ class Match():
             "score": self.score,
             "season": self.season,
             "league": self.league,
+            "tournament": self.tournament,
             "matchDay": self.matchDay,
             "court": self.court,
             "publishDate": self.publishDate.strftime(HUGO_DATETIME_FORMAT),
@@ -94,13 +114,15 @@ class Match():
             "featured": self.featured
         }
 
-    def save(self, fname=None, folder="", season_folder=True, league_folder=True):
+    def save(self, fname=None, folder="", season_folder=True, league_folder=True, tournament_folder=True):
         if fname is None:
             fname = f"{self.date.strftime(DATETIME_FORMAT)}_{self.home['name']}-{self.away['name']}.md"
         if season_folder and self.season is not None:
             folder = os.path.join(folder, self.season)
         if league_folder and self.league is not None:
             folder = os.path.join(folder, self.league)
+        if tournament_folder and self.tournament is not None:
+            folder = os.path.join(folder, self.tournament)
 
         if not os.path.exists(folder):
             os.makedirs(folder, exist_ok=True)

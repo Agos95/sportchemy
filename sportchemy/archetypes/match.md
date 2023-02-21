@@ -22,6 +22,7 @@ score:
 # Match details
 season:
 league:
+tournament:
 matchDay:
 court:
   name:
