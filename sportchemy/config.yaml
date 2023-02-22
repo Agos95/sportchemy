@@ -9,5 +9,8 @@ module:
     - source: assets/scss/blocks
       target: assets/scss/blocks
       includeFiles: "**.scss"
+    - source: assets/scss/
+      target: assets/scss/
+      includeFiles: sportchemy-colors.scss
     - source: assets/media/sportchemy
       target: assets/media/sportchemy

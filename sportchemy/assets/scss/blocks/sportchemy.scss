@@ -15,7 +15,7 @@
     }
 
     .card-subtitle {
-        font-size: large;
+        font-size: medium;
     }
 
     .team-logo {
@@ -41,6 +41,10 @@
     .card-footer {
         padding: .1rem .5rem;
         font-size: medium;
+    }
+
+    .card-link {
+        text-decoration: underline;
     }
 }
 

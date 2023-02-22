@@ -1,0 +1,98 @@
+/*
+    SPORTCHEMY CARD
+*/
+
+.sportchemy-card {
+    background-color: mix($sta-background, white, 10%);
+    border-color: mix($sta-background, black, 90%);
+
+    .card-header {
+        background-color: mix($sta-background, white, 50%);
+    }
+
+    .card-footer {
+        background-color: mix($sta-background, white, 50%);
+    }
+}
+
+.dark .sportchemy-card {
+    background-color: mix($sta-dark-background, white, 85%);
+    border-color: mix($sta-dark-background, white, 90%);
+
+    .card-header {
+        background-color: mix($sta-dark-background, black, 60%);
+    }
+
+    .card-footer {
+        background-color: mix($sta-dark-background, black, 60%);
+    }
+}
+
+/*
+    SPORTCHEMY-TABLE
+*/
+
+.sportchemy-table {
+    thead {
+        color: white;
+        background-color: mix($sta-background, black, 25%);
+    }
+
+    td {
+        border-top: mix($sta-background, black, 75%) solid 1px;
+        border-bottom: mix($sta-background, black, 75%) solid 1px;
+    }
+
+    &.table-striped {
+        tbody tr {
+            // odd rows
+            &:nth-child(odd) td {
+                background-color: mix($sta-background, white, 40%);
+            }
+
+            // even rows
+            &:nth-child(even) td {
+                background-color: mix($sta-background, black, 95%);
+            }
+        }
+    }
+
+    &.table-hover {
+        tbody tr:hover td {
+            background-color: $sta-background;
+        }
+    }
+}
+
+.dark .sportchemy-table {
+    thead {
+        color: black;
+        background-color: mix($sta-dark-background, white, 50%);
+    }
+
+    td {
+        border-top: white solid 1px;
+        border-bottom: white solid 1px;
+    }
+
+    &.table-striped {
+        tbody tr {
+            // odd rows
+            &:nth-child(odd) td {
+                background-color: mix($sta-dark-background, black, 75%);
+            }
+
+            // even rows
+            &:nth-child(even) td {
+                background-color: mix($sta-dark-background, white, 97%);
+            }
+        }
+    }
+
+    &.table-hover {
+        tbody tr:hover td {
+            background-color: mix($sta-dark-background, black, 50%);
+            color: white;
+        }
+    }
+}
