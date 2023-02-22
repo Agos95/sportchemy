@@ -48,10 +48,5 @@
   ],
   "frontMatter.framework.id": "hugo",
   "frontMatter.content.publicFolder": "static",
-  "frontMatter.content.pageFolders": [
-    {
-      "title": "content",
-      "path": "[[workspace]]/demo/content"
-    }
-  ]
+  "frontMatter.content.pageFolders": []
 }

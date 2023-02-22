@@ -8,7 +8,7 @@
 appearance:
   theme_day: basket
   theme_night: basket
-  font: minimal
+  font: native
   font_size: L
 
 # SEO
