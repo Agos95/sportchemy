@@ -56,8 +56,8 @@ court:
   name: Chase Center # optional
   address: Chase Center, San Francisco, California # optional
   link: https://goo.gl/maps/Dwk6Ua7ek4msvCz99 # optional
-  lat: # optional
-  long: # optional
+  lat: # not yet used
+  long: # not yet used
 
 # Schedule page publish date (NOT match date).
 publishDate:  2022-09-01
@@ -100,6 +100,32 @@ featured: false
     Utah Jazz: NBA/utah_jazz_logo_primary_2023_sportslogosnet-8513.png
     ```
     The logic to assign the logo is the following:
-    1. Use `logo` parameter in the Front Matter, if present
-    2. Look in `data/sportchemy/team_logo.yaml`, searching for the team name
-    3. Use a fallback image. Default is {{< icon name="users" pack="fas" >}}, but you can change it by creating an image `assets/media/sportchemy/team-placeholder.png`.
+    1. Use `logo` parameter in the Front Matter, if present.
+    2. Look in `data/sportchemy/team_logo.yaml`, searching for the team name.
+    3. Use a fallback image. Default is {{< icon name="users" pack="fas" >}}, but you can change it by creating the image `assets/media/sportchemy/team-placeholder.png` with your own placeholder.
+- `score`: Final score of the game. This is a dictionary with the keys:
+  - `home`: Points for the Home team.
+  - `away`: Points for the Away team.
+- `season`, `league`, `tournament`, `matchDay`: Additional match information, useful when filtering games in blocks.
+- `court`: Playing field information; it is a dicionary with the keys:
+  - `name`: Name of the playground.
+  - `address`: Address of the playground.
+  - `link`: Link to attach to the field name (for example a Google Maps link).
+  - `lat`, `long`: Latitude and Longitude of the playground (not used yet).
+  
+  In blocks, a url is associated to the field name; it is constructed using the following logic:
+  1. Use `link` parameter.
+  2. Use `https://maps.google.com?{address}`, sanitizing the address.
+  3. Use `https://maps.google.com?{name}`, sanitizing the address.
+  4. Fallback to `#` ("empty" link).
+- `publishDate`: Schedule page publish date (not match date). Hugo does not publish files with a future `publishDate`.
+
+{{% callout warning %}}
+If you don't need to work with different timezones, I suggest to add your timezone to the `config/_defaul/config.yaml` file (choosing from [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)), such as:
+```yaml
+timeZone: Europe/Rome
+```
+In this way, both match and publish dates are set to the same timezones. Otherwise, you can experience strange behaviours.
+{{% /callout %}}
+- `tags`: Tags to associate with the match.
+- `featured`: set to `true` for a featured match (can be useful for filtering in blocks).
