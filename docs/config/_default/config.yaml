@@ -24,7 +24,7 @@ module:
   imports:
     - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify
     - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5
-    - path: ../../sportchemy
+    - path: github.com/Agos95/sportchemy/sportchemy
 
 ############################
 ## ADVANCED

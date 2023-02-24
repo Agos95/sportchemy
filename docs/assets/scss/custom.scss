@@ -1,5 +1,31 @@
 @import "sportchemy-colors";
 
+// Link decoration in whole page (except footer licence icons)
 .page-body a {
     text-decoration: $sta-link-decoration;
 }
+.footer-license-icons a {
+    text-decoration: none;
+}
+// ==================================================================
+
+// Search box color
+.sidebar-search {
+    background-color: mix($sta-background, white, 50%);
+    border-color: $sta-primary;
+}
+.sidebar-search-shortcut {
+    background-color: $sta-background;
+    border-color: $sta-primary;
+}
+.dark {
+    .sidebar-search {
+        background-color: mix($sta-dark-background, black, 50%);
+        border-color: $sta-primary-dark;
+    }
+    .sidebar-search-shortcut {
+        background-color: $sta-dark-background;
+        border-color: $sta-primary-dark;
+    }
+}
+// ==================================================================
