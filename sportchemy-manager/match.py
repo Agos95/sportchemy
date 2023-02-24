@@ -8,6 +8,7 @@ from datetime import datetime
 # %%
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M"
+FNAME_DATETIME_FORMAT = "%Y-%m-%d %H-%M"
 HUGO_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # %%
@@ -85,7 +86,10 @@ class Match():
             elif k in ["address", "link"]:
                 records["court"].update({k: v})
             elif k == "score":
-                home, away = v.split("-")
+                try:
+                    home, away = v.split("-")
+                except:
+                    home, away = None, None
                 records[k].update({"home": home, "away": away})
             else:
                 records[k] = v
@@ -116,7 +120,7 @@ class Match():
 
     def save(self, fname=None, folder="", season_folder=True, league_folder=True, tournament_folder=True):
         if fname is None:
-            fname = f"{self.date.strftime(DATETIME_FORMAT)}_{self.home['name']}-{self.away['name']}.md"
+            fname = f"{self.date.strftime(FNAME_DATETIME_FORMAT)}_{self.home['name']}-{self.away['name']}.md"
         if season_folder and self.season is not None:
             folder = os.path.join(folder, self.season)
         if league_folder and self.league is not None:
