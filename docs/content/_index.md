@@ -12,7 +12,7 @@ sections:
       text: |-
         [Wowchemy](https://wowchemy.com/) is an amazing website builder for the [Hugo](https://gohugo.io/) Static Site Generator. **Sportchemy** is an extension for Wowchemy, and it aims to provide functionalities to create a website for a Sport team or club. The inspiration behind this project is given by the [SportsPress](https://wordpress.org/plugins/sportspress/) plugin for WordPress.
 
-        {{< cta cta_text="Learn more in the **Docs**!" cta_link="docs" cta_new_tab="false" >}}
+        {{< cta cta_text="Learn more in the **Docs**!" cta_link="docs" cta_new_tab="false" cta_alt_text="See the code on **GitHub**!" cta_alt_link="https://github.com/Agos95/sportchemy" cta_alt_new_tab="true" >}}
 
   - block: sportchemy-collection
     id:

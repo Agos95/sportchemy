@@ -1,14 +1,16 @@
 ---
 # Title, summary, and page position.
 title: Sportchemy Collection Block
-summary:
+summary: Sportchemy defines a new Collection block designed specifically for the match archetype. It also provides two different views to display the games.
 weight: 2
-icon: calendar
-icon_pack: fas
+#icon: calendar
+#icon_pack: fas
 
 date: "2023-02-24"
 type: book # Do not modify.
 ---
+
+{{< toc hide_on="xl" >}}
 
 ## Usage
 
@@ -86,7 +88,7 @@ Additional parameters are added to filter games:
 
 ## Views
 
-Sportchemy defines two views for its collection block.
+Sportchemy defines two views for its Collection block.
 
 {{% callout warning %}}
 As for now, the `design/view_params` parameter is not yet implemented, but in the future it will allow to customize some aspects of the views.
@@ -105,3 +107,9 @@ Cards are arranged in 3, 2 or 1 columns, depending on the screen size.
 The `sportchemy-table-view` layout displays games using a Table:
 
 {{< figure src="table-view.png" >}}
+
+### View Hooks
+
+Differently from Wowchemy, Sportchemy views are called inside a hook function:
+- [`sportchemy-card-view-hook`](https://github.com/Agos95/sportchemy/blob/main/sportchemy/layouts/partials/views/sportchemy-card-view-hook.html) creates a `<div class="row justify-content-center">`, where ther columns containing the cards are inserted.
+- [`sportchemy-table-view-hook`](https://github.com/Agos95/sportchemy/blob/main/sportchemy/layouts/partials/views/sportchemy-table-view-hook.html) defines the header row of the Table; then each `match` is rendered as a row.

@@ -1,10 +1,10 @@
 ---
 # Title, summary, and page position.
 title: Match
-summary:
+summary: A match is a new archetype which represents a single game.
 weight: 1
-icon: basketball
-icon_pack: fas
+#icon: basketball
+#icon_pack: fas
 
 date: "2023-02-18"
 type: book # Do not modify.
