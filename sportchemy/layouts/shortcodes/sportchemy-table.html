@@ -86,7 +86,7 @@
 {{ $id := (.Get "id" | default "") }}
 
 {{/* Add bootstrap responsive table class to enable horizontal scrolling in small screens. */}}
-<table class={{$table_class}} {{ with $halign }}style="{{$halign | safeCSS}}"{{ end }} {{ with $id }}id="$id"{{ end }}>
+<table class={{$table_class}} {{ with $halign }}style="{{.|safeCSS}}"{{ end }} {{ with $id }}id="."{{ end }}>
     {{ if $useHeaderRow }}
         {{ $headerRow := index $rows 0 }}
         {{ $rows = after 1 $rows }}

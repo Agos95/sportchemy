@@ -68,3 +68,30 @@
         padding: .25em;
     }
 }
+
+// sportchemy-gallery
+
+//  - center image and fix figure and figcaption to have multiple in same row
+.sportchemy-gallery {
+    text-align: center;
+
+    // center and align figure and caption
+    figure {
+        display: inline-block;
+        vertical-align: top;
+
+        figcaption {
+            margin: auto;
+        }
+    }
+
+    // avoid image to be wider than the screen for small viewports
+    // ad also preserve aspect ratio
+    a[data-fancybox] {
+        img {
+            height: auto;
+            width: auto;
+            max-width: 100%;
+        }
+    }
+}
