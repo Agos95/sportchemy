@@ -65,7 +65,7 @@
 {{ $img_style := .Get "img_style" | default "max-height:300px;"}}
 
 
-<div class="sportchemy-gallery">
+<div class="sportchemy-gallery" {{ with .Get "id" }}id="."{{ end }}>
 
     {{/* Attempt to automatically load gallery images from page bundle */}}
     {{ $images := resources.Match $album_path }}

@@ -105,7 +105,7 @@ All the galleries created with this shortcode inherit the `sportchemy-gallery` C
   Additional style parameters for each `<img>` tag.
   To have a better results, the advice is to set max-height a bit lower than the resize option.
 - `id`, optional  
-  Specific id for the table, useful for targetting the specifc table with CSS.
+  Specific id for the table, useful for targetting the specifc gallery with CSS.
 
 ### Example
 
