@@ -1,0 +1,113 @@
+{{/* Sportchemy Shortcodes: sportchemy-table */}}
+
+{{/*
+    Custom version of the "table" shortcode, to allow a deeper configuration and
+    an easier way to target specific class with custom css.
+    The new parameters assign additional bootstrap classes besides the default "table".
+
+    Changes:
+    - Header row is encapsulated inside <thead> tag
+    - Additional class can be set using the parameters:
+      table-striped", "table-hover", "table-responsive-XX", "table-sm".
+      See: https://getbootstrap.com/docs/4.6/content/tables/
+    - Parameter for horizontal text alignment
+*/}}
+
+{{/*
+    Parameters
+    ----------
+    path :
+        Path or url to the csv table. Path is relative to the folder where the shortcode is called.
+    delimiter : default ","
+        Cell delimiter.
+    header : default "true"
+        If "true", first row is interpreted as the header.
+    caption : optional
+        Caption for the table.
+    striped : default "true"
+        If true, add the class "table-striped", to make alternate rows of different colors.
+    hover : default "true"
+        If true, add the class "table-hover", to enable a hover state on the current row.
+    responsive : default "true"
+        If "true", it defaults to "md".
+        If a str must be one of ["sm", "md", "lg", "xl"], otherwise it defaults to "md".
+        If not false, add the class "table-responsive-$responsive",
+        to make the table horizontable scrollable under the specified breakpoint.
+    small : default "false"
+        If "true", add the class "table-sm", to make the table more compact
+        by cutting cell padding in half.
+    halign : default "left"
+        Horizontal text alignment for the table.
+        If passed, must be one of ["left", "center", "right"], otherwise it defaults to "left".
+    id : optional
+        Specific id for the table, useful for targetting the specifc table with CSS.
+*/}}
+
+{{ $src := .Get "path" }}
+{{ $delimiter := .Get "delimiter" | default "," }}
+{{ $useHeaderRow := (eq (lower (.Get "header") | default "true") "true") }}
+{{ $caption := .Get "caption" }}
+{{ $is_remote := strings.HasPrefix $src "http" }}
+{{ if not $is_remote }}
+    {{ $src = path.Join "content" $.Page.File.Dir $src }}
+{{ end }}
+{{ $rows := getCSV $delimiter $src }}
+
+{{/* Add additional bootstrap classes if requested. */}}
+
+{{ $table_class := "table sportchemy-table" }}
+{{ if (eq (.Get "striped" | default "true") "true") }}
+    {{ $table_class = printf "%s table-striped" $table_class }}
+{{ end }}
+{{ if (eq (.Get "hover" | default "true") "true") }}
+    {{ $table_class = printf "%s table-hover" $table_class}}
+{{ end }}
+{{ $responsive := (.Get "responsive" | default "md") }}
+{{ if $responsive }}
+    {{ if not (in "sm md lg xl" $responsive) }}
+        {{ $responsive = "md"}}
+    {{ end }}
+    {{ $table_class = printf "%s table-responsive-%s" $table_class $responsive }}
+{{ end }}
+{{ if (eq (.Get "small" | default "false") "true") }}
+    {{ $table_class = printf "%s table-sm" $table_class }}
+{{ end }}
+
+{{/* Text alignment */}}
+{{ $halign := (.Get "halign" | default "") }}
+{{ if $halign }}
+    {{ if not (in "left center right" $halign)}}
+        {{ $halign = "left"}}
+    {{ end }}
+    {{ $halign = printf "text-align:%s;" $halign}}
+{{ end }}
+
+{{/* id */}}
+{{ $id := (.Get "id" | default "") }}
+
+{{/* Add bootstrap responsive table class to enable horizontal scrolling in small screens. */}}
+<table class={{$table_class}} {{ with $halign }}style="{{$halign | safeCSS}}"{{ end }} {{ with $id }}id="$id"{{ end }}>
+    {{ if $useHeaderRow }}
+        {{ $headerRow := index $rows 0 }}
+        {{ $rows = after 1 $rows }}
+        <thead>
+            <tr> {{ range $headerRow }}
+                <th>{{ . | markdownify | emojify }}</th> {{ end }}
+            </tr>
+        </thead>
+    {{ end }}
+    {{ range $rows }}
+        <tr>
+            {{ range . }}
+                {{ if (findRE "^\\d+$" .) }}
+                    <td data-table-dtype="number">{{ . }}</td>
+                {{ else }}
+                    <td data-table-dtype="text">{{ . | markdownify | emojify }}</td>
+                {{ end }}
+            {{ end }}
+        </tr>
+    {{ end }}
+    {{ if $caption }}
+        <caption>{{ $caption | markdownify | emojify }}</caption>
+    {{ end }}
+</table>

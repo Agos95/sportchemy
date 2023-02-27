@@ -1,6 +1,6 @@
 ---
 # Title, summary, and page position.
-title: Sportchemy Collection Block
+title: Collection Block
 summary: Sportchemy defines a new Collection block designed specifically for the match archetype. It also provides two different views to display the games.
 weight: 2
 #icon: calendar
