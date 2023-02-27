@@ -112,6 +112,7 @@ All the galleries created with this shortcode inherit the `sportchemy-gallery` C
 In Front Matter:
 
 ```yaml
+---
 # ... other things in Front Matter ...
 
 gallery_item:
@@ -132,6 +133,8 @@ gallery_item:
   caption: Magic Johnson
 - album: players
   image: michael-jordan.jpg
+  caption: Michael Jordan
+---
 ```
 
 Then:
