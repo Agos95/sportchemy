@@ -44,28 +44,28 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
 
 ### Parameters
 
-- `path`: 
+- *`path` :*  
   Path or url to the csv table.  
   Path is relative to the folder where the shortcode is called.
-- `delimiter`, default `","`  
+- *`delimiter` : default `","`*  
   Cell delimiter.
-- `header`: default `"true"`  
-  If `"true"`, first row is interpreted as the header.
-- `caption`, optional  
+- *`header` : default `"true"`*  
+  If `"true"` : first row is interpreted as the header.
+- *`caption` : optional*  
   Caption for the table.
-- `striped`, default `"true"`  
+- *`striped` : default `"true"`*  
   If true, add the class `table-striped`, to make alternate rows of different colors.
-- `hover`, default `"true"`  
+- *`hover` : default `"true"`*  
   If true, add the class `table-hover`, to enable a hover state on the current row.
-- `responsive`, default `"true"`  
-  If `"true"`, it defaults to `"md"`.  
+- *`responsive` : default `"true"`*  
+  If `"true"` : it defaults to `"md"`.  
   If a str must be one of [`"sm"`, `"md"`, `"lg"`, `"xl"`], otherwise it defaults to `"md"`.  
   If not false, add the class `table-responsive-$responsive`, to make the table horizontable scrollable under the specified breakpoint.
-- `small`, default `"false"`  
+- *`small` : default `"false"`*  
   If `"true"`, add the class `table-sm`, to make the table more compact by cutting cell padding in half.
-- `halign`, default `"left"`  
+- *`halign` : default `"left"`*  
   Horizontal text alignment for the table. If passed, must be one of [`"left"`, `"center"`, `"right"`], otherwise it defaults to `"left"`.
-- `id`, optional  
+- *`id` : optional*  
   Specific id for the table, useful for targetting the specifc table with CSS.
 
 ### Example
@@ -87,25 +87,28 @@ All the galleries created with this shortcode inherit the `sportchemy-gallery` C
 
 ### Parameters
 
-- `album`, default `"gallery"`  
+- *`album` : default `"gallery"`*  
   Album folder in `assets/media/albums/` to search the images in.
-- `order`, default `"asc"`  
+- *`order` : default `"asc"`*  
   One of [`"asc"`, `"desc"`]. Sorting order by image Name.
-- `processing`, default `"resize"`  
+- *`processing` : default `"resize"`*  
   One of [`"resize"`, `"fit"`], otherwise it defaults to `"resize"`. Set the hugo image processign function, respectively [`.Resize`, `.Fit`].  
   See [Hugo documentation](https://gohugo.io/content-management/image-processing/) for the differences.
-- `resize_options`, optional  
+- *`resize_options` : optional*  
   Resize options passed to Hugo image processing function.
   Defaults to `"x500"` if processing is `"resize"`,
   or to `"500x500"` if processing is `"fit"`.
-- `fig_style`, optional  
+- *`fig_style` : optional*  
   Additional style parameters for each `<figure>` tag.
   For instance, you can specify a padding between pictures.
-- `img_style`, default `"max-height:300px;"`  
+- *`img_style` : default `"max-height:300px;"`*  
   Additional style parameters for each `<img>` tag.
   To have a better results, the advice is to set max-height a bit lower than the resize option.
-- `id`, optional  
+- *`id` : optional*  
   Specific id for the table, useful for targetting the specifc gallery with CSS.
+- *`fancybox` : default `"true"`*  
+  Add fancybox css and js.  
+  In case of multiple galleries in the same page, you can set it to false to avoid multiple imports.
 
 ### Example
 
