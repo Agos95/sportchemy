@@ -74,7 +74,7 @@
 {{ end }}
 
 {{/* Text alignment */}}
-{{ $halign := (.Get "halign" | default "") }}
+{{ $halign := (.Get "halign" | default "left") }}
 {{ if $halign }}
     {{ if not (in "left center right" $halign)}}
         {{ $halign = "left"}}

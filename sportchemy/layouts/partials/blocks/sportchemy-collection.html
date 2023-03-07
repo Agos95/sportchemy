@@ -114,13 +114,13 @@ sections:
   {{ $query = union $query_home $query_away }}
 {{ end }}
 {{ if $filters.season }}
-  {{ $query = where $query "Params.details.season" "in" $filters.season }}
+  {{ $query = where $query "Params.season" "in" $filters.season }}
 {{ end }}
 {{ if $filters.league }}
-  {{ $query = where $query "Params.details.league" "in" $filters.league }}
+  {{ $query = where $query "Params.league" "in" $filters.league }}
 {{ end }}
 {{ if $filters.tournament }}
-  {{ $query = where $query "Params.details.tournament" "in" $filters.tournament }}
+  {{ $query = where $query "Params.tournament" "in" $filters.tournament }}
 {{ end }}
 {{ if $filters.from }}
   {{ $query = where $query "Date" ">=" (time $filters.from) }}
