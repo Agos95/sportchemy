@@ -38,6 +38,8 @@ def main(args):
         data = csv.DictReader(f, fieldnames=header, delimiter=",", quotechar='"',
                               skipinitialspace=True)
         for row in data:
+            # strip whitespaces
+            row = {k:v.strip() for k,v in row.items()}
             matches.append(Match.from_csv(
                 row, dt_format=args["dt"], season=args["season"], league=args["league"], tournament=args["tournament"]))
 

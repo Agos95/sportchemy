@@ -20,7 +20,7 @@
   {{ $logoHome = $logoHome | safeURL }}
 {{ else }}
   {{ $logoHome = resources.Get (path.Join "media" $logoHome) }}
-  {{ $logoHome = $logoHome.Fit "128x128 webp" }}
+  {{ $logoHome = $logoHome.Fit "75x75 webp" }}
   {{ $logoHome = $logoHome.RelPermalink }}
 {{ end }}
 {{ $logoAway := $params.away.logo | default (index site.Data.sportchemy.team_logo $params.away.name ) | default "sportchemy/team-placeholder.png" }}
@@ -28,7 +28,7 @@
   {{ $logoAway = $logoAway | safeURL }}
 {{ else }}
   {{ $logoAway = resources.Get (path.Join "media" $logoAway) }}
-  {{ $logoAway = $logoAway.Fit "128x128 webp" }}
+  {{ $logoAway = $logoAway.Fit "75x75 webp" }}
   {{ $logoAway = $logoAway.RelPermalink }}
 {{ end }}
 
