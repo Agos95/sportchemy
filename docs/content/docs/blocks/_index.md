@@ -28,6 +28,7 @@ sections:
       title:
       subtitle:
       text:
+      text_below:
       # Choose how many matches you would like to display (0 = all pages)
       count: 6
       # Filter on criteria
@@ -70,7 +71,7 @@ sections:
 
 ## Parameters
 
-`sportchemy-collection` supports the [general parameters](https://wowchemy.com/docs/getting-started/page-builder/#personalizing-blocks) of every Wowchemy block, plus some additional one specific for `match`.
+`sportchemy-collection` supports the [general parameters](https://wowchemy.com/docs/getting-started/page-builder/#personalizing-blocks) of every Wowchemy block, with the possibility to also add a text below the matches using the `text_below` key. In addition, it defines some additional parameters specific for `match`.
 
 ### Filters
 

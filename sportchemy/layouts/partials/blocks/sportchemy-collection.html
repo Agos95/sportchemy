@@ -17,6 +17,7 @@ sections:
       title:
       subtitle:
       text:
+      text_below:
       # Choose how many matches you would like to display (0 = all pages)
       count: 6
       # Filter on criteria
@@ -165,6 +166,8 @@ sections:
       {{ partial "functions/render_view" (dict "page" $block "item" . "view" ($block.design.view | default "sportchemy-card-view") "index" $index) }}
     {{end}}
   {{ end }}
+
+  {{ with $block.content.text_below }}<p>{{ . | emojify | $page.RenderString }}</p>{{ end }}
 
   {{/* Archive link */}}
   {{ $show_archive_link := $block.content.archive.enable | default (gt $count $items_count) }}
