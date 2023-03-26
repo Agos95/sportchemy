@@ -78,7 +78,7 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
 
 ## Sportchemy Markdown Table
 
-The `sportchemy-mdtable` shortcode allows to style markdown tables in a similar way as the `sportchemy-table` one.
+The `sportchemy-mdtable` shortcode allows to style markdown tables in a similar way as the `sportchemy-table` one.  
 
 All the tables create with this shortcode inherit the `sportchemy-table` CSS class.
 
@@ -94,6 +94,8 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
   If not false, add the class `table-responsive-$responsive`, to make the table horizontable scrollable under the specified breakpoint.
 - *`small` : default `"false"`*  
   If `"true"`, add the class `table-sm`, to make the table more compact by cutting cell padding in half.
+- *`noheader`* :  
+  If present, the header is removed. This is useful for markdown tables without header, since Hugo always renders table with it.
 - *`id` : optional*  
   Specific id for the table, useful for targetting the specifc table with CSS.
 
@@ -112,6 +114,28 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
 
 {{<sportchemy-mdtable>}}
 | date | time | home | away | score | court |
+| ---- | ---- | ---- | ---- | ----- | ----- |
+| 19 Oct 2022 | 19:30 | Chicago Bulls | Miami Heat | 116-108 | FTX Arena |
+| 19 Oct 2022 | 21:00 | Denver Nuggets |Utah Jazz | 102-123 | Vivint Arena |
+| 19 Oct 2022 | 22:00 | Dallas Mavericks | Phoenix Suns | 105-107 | Footprint Center |
+| 21 Oct 2022 | 19:30 | Boston Celtics | Miami Heat | 111-104 | FTX Arena |
+{{</sportchemy-mdtable>}}
+
+If you have a markdown table without the header:
+
+```go
+{{</*sportchemy-mdtable noheader>}}
+|      |      |      |      |       |       |
+| ---- | ---- | ---- | ---- | ----- | ----- |
+| 19 Oct 2022 | 19:30 | Chicago Bulls | Miami Heat | 116-108 | FTX Arena |
+| 19 Oct 2022 | 21:00 | Denver Nuggets |Utah Jazz | 102-123 | Vivint Arena |
+| 19 Oct 2022 | 22:00 | Dallas Mavericks | Phoenix Suns | 105-107 | Footprint Center |
+| 21 Oct 2022 | 19:30 | Boston Celtics | Miami Heat | 111-104 | FTX Arena |
+{{</sportchemy-mdtable*/>}}
+```
+
+{{<sportchemy-mdtable noheader>}}
+|      |      |      |      |       |       |
 | ---- | ---- | ---- | ---- | ----- | ----- |
 | 19 Oct 2022 | 19:30 | Chicago Bulls | Miami Heat | 116-108 | FTX Arena |
 | 19 Oct 2022 | 21:00 | Denver Nuggets |Utah Jazz | 102-123 | Vivint Arena |

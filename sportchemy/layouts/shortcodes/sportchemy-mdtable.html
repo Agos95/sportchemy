@@ -20,6 +20,9 @@
     small : default "false"
         If "true", add the class "table-sm", to make the table more compact
         by cutting cell padding in half.
+    noheader :
+        If present, the header is removed. This is useful for markdown tables without header,
+        since Hugo always renders table with it.
     id : optional
         Specific id for the table, useful for targetting the specifc table with CSS.
 */}}
@@ -62,5 +65,9 @@
 {{ $attributes := printf "class=\"%s\"" $table_class }}
 {{ with $id }}{{ $attributes = printf "%s id=\"%s\"" . }}{{ end }}
 {{ $table = replace $table "<table>" (printf "<table %s>" $attributes ) }}
+{{ if ("noheader" | in .Params) }}
+    {{ $thead := index (findRE `(?s)<thead>.*</thead>` $table 1) 0 }}
+    {{ $table = replace $table $thead "" }}
+{{ end }}
 {{ $table | safeHTML }}
 
