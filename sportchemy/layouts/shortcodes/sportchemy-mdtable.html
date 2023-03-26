@@ -1,0 +1,66 @@
+{{/* Sportchemy Shortcodes: sportchemy-mdtable */}}
+
+{{/*
+    Shortcode to style markdown table in a similar way as sportchemy-table shortcode.
+    The new parameters assign additional bootstrap classes besides the default "table".
+*/}}
+
+{{/*
+    Parameters
+    ----------
+    striped : default "true"
+        If true, add the class "table-striped", to make alternate rows of different colors.
+    hover : default "true"
+        If true, add the class "table-hover", to enable a hover state on the current row.
+    responsive : default "true"
+        If "true", it defaults to "md".
+        If a str must be one of ["sm", "md", "lg", "xl"], otherwise it defaults to "md".
+        If not false, add the class "table-responsive-$responsive",
+        to make the table horizontable scrollable under the specified breakpoint.
+    small : default "false"
+        If "true", add the class "table-sm", to make the table more compact
+        by cutting cell padding in half.
+    id : optional
+        Specific id for the table, useful for targetting the specifc table with CSS.
+*/}}
+
+{{/* Add additional bootstrap classes if requested. */}}
+
+{{ $table_class := "table sportchemy-table" }}
+{{ if (eq (.Get "striped" | default "true") "true") }}
+    {{ $table_class = printf "%s table-striped" $table_class }}
+{{ end }}
+{{ if (eq (.Get "hover" | default "true") "true") }}
+    {{ $table_class = printf "%s table-hover" $table_class}}
+{{ end }}
+{{ $responsive := (.Get "responsive" | default "md") }}
+{{ if $responsive }}
+    {{ if not (in "sm md lg xl" $responsive) }}
+        {{ $responsive = "md"}}
+    {{ end }}
+    {{ $table_class = printf "%s table-responsive-%s" $table_class $responsive }}
+{{ end }}
+{{ if (eq (.Get "small" | default "false") "true") }}
+    {{ $table_class = printf "%s table-sm" $table_class }}
+{{ end }}
+
+{{/* Text alignment */}}
+{{ $halign := (.Get "halign" | default "left") }}
+{{ if $halign }}
+    {{ if not (in "left center right" $halign)}}
+        {{ $halign = "left"}}
+    {{ end }}
+    {{ $halign = printf "text-align:%s;" $halign}}
+{{ end }}
+
+{{/* id */}}
+{{ $id := (.Get "id" | default "") }}
+
+{{/* Get table content and add requested classes */}}
+
+{{ $table := .Inner | markdownify }}
+{{ $attributes := printf "class=\"%s\"" $table_class }}
+{{ with $id }}{{ $attributes = printf "%s id=\"%s\"" . }}{{ end }}
+{{ $table = replace $table "<table>" (printf "<table %s>" $attributes ) }}
+{{ $table | safeHTML }}
+

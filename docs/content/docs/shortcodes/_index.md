@@ -71,10 +71,54 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
 ### Example
 
 ```go
-{{</* sportchemy-table path="games.csv" header="true" */>}}
+{{</*sportchemy-table path="games.csv" header="true"*/>}}
 ```
 
-{{< sportchemy-table path="games.csv" header="true" >}}
+{{<sportchemy-table path="games.csv" header="true">}}
+
+## Sportchemy Markdown Table
+
+The `sportchemy-mdtable` shortcode allows to style markdown tables in a similar way as the `sportchemy-table` one.
+
+All the tables create with this shortcode inherit the `sportchemy-table` CSS class.
+
+### Parameters
+
+- *`striped` : default `"true"`*  
+  If true, add the class `table-striped`, to make alternate rows of different colors.
+- *`hover` : default `"true"`*  
+  If true, add the class `table-hover`, to enable a hover state on the current row.
+- *`responsive` : default `"true"`*  
+  If `"true"` : it defaults to `"md"`.  
+  If a str must be one of [`"sm"`, `"md"`, `"lg"`, `"xl"`], otherwise it defaults to `"md"`.  
+  If not false, add the class `table-responsive-$responsive`, to make the table horizontable scrollable under the specified breakpoint.
+- *`small` : default `"false"`*  
+  If `"true"`, add the class `table-sm`, to make the table more compact by cutting cell padding in half.
+- *`id` : optional*  
+  Specific id for the table, useful for targetting the specifc table with CSS.
+
+### Example
+
+```go
+{{</*sportchemy-mdtable>}}
+| date | time | home | away | score | court |
+| ---- | ---- | ---- | ---- | ----- | ----- |
+| 19 Oct 2022 | 19:30 | Chicago Bulls | Miami Heat | 116-108 | FTX Arena |
+| 19 Oct 2022 | 21:00 | Denver Nuggets |Utah Jazz | 102-123 | Vivint Arena |
+| 19 Oct 2022 | 22:00 | Dallas Mavericks | Phoenix Suns | 105-107 | Footprint Center |
+| 21 Oct 2022 | 19:30 | Boston Celtics | Miami Heat | 111-104 | FTX Arena |
+{{</sportchemy-mdtable*/>}}
+```
+
+{{<sportchemy-mdtable>}}
+| date | time | home | away | score | court |
+| ---- | ---- | ---- | ---- | ----- | ----- |
+| 19 Oct 2022 | 19:30 | Chicago Bulls | Miami Heat | 116-108 | FTX Arena |
+| 19 Oct 2022 | 21:00 | Denver Nuggets |Utah Jazz | 102-123 | Vivint Arena |
+| 19 Oct 2022 | 22:00 | Dallas Mavericks | Phoenix Suns | 105-107 | Footprint Center |
+| 21 Oct 2022 | 19:30 | Boston Celtics | Miami Heat | 111-104 | FTX Arena |
+{{</sportchemy-mdtable>}}
+
 
 
 ## Sportchemy Gallery
@@ -142,7 +186,7 @@ gallery_item:
 
 Then:
 ```go
-{{</* sportchemy-gallery album="players" processing="resize" resize_options="x300" fig_style="margin:5px 0px 5px 0px" */>}}
+{{</*sportchemy-gallery album="players" processing="resize" resize_options="x300" fig_style="margin:5px 0px 5px 0px"*/>}}
 ```
 
-{{< sportchemy-gallery album="players" processing="resize" resize_options="x300" fig_style="margin:5px 0px 5px 0px" >}}
+{{<sportchemy-gallery album="players" processing="resize" resize_options="x300" fig_style="margin:5px 0px 5px 0px">}}
