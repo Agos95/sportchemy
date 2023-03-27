@@ -37,7 +37,9 @@
     {{ $table_class = printf "%s table-hover" $table_class}}
 {{ end }}
 {{ $responsive := (.Get "responsive" | default "md") }}
-{{ if $responsive }}
+{{ if eq $responsive "false" }}
+    {{ $responsive = false }}
+{{ else }}
     {{ if not (in "sm md lg xl" $responsive) }}
         {{ $responsive = "md"}}
     {{ end }}
@@ -45,15 +47,6 @@
 {{ end }}
 {{ if (eq (.Get "small" | default "false") "true") }}
     {{ $table_class = printf "%s table-sm" $table_class }}
-{{ end }}
-
-{{/* Text alignment */}}
-{{ $halign := (.Get "halign" | default "left") }}
-{{ if $halign }}
-    {{ if not (in "left center right" $halign)}}
-        {{ $halign = "left"}}
-    {{ end }}
-    {{ $halign = printf "text-align:%s;" $halign}}
 {{ end }}
 
 {{/* id */}}

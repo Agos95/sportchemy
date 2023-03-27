@@ -63,7 +63,9 @@
     {{ $table_class = printf "%s table-hover" $table_class}}
 {{ end }}
 {{ $responsive := (.Get "responsive" | default "md") }}
-{{ if $responsive }}
+{{ if eq $responsive "false" }}
+    {{ $responsive = false }}
+{{ else }}
     {{ if not (in "sm md lg xl" $responsive) }}
         {{ $responsive = "md"}}
     {{ end }}
