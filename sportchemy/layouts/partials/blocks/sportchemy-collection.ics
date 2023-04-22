@@ -145,54 +145,17 @@ sections:
   {{ $query = first $items_count $query }}
 {{ end }}
 
-{{ $columns := $block.design.columns | default "1" }}
-
-<div class="col-12 {{if eq $columns "2"}}col-lg-8{{end}}">
-
-  {{ with $block.content.text }}<p>{{ . | emojify | $page.RenderString }}</p>{{ end }}
-
-  {{/*
-      Allow hooks for custom views.
-      Hooks are containers inside which each item is displayed.
-      For instance, the default "sportchemy-card" view requires cards to be placed
-      inside a <div class="row"> to display them correctly.
-  */}}
-
-  {{ $view_hook := printf "partials/views/%s-hook.html" $block.design.view }}
-  {{ if templates.Exists $view_hook }}
-    {{ partial $view_hook (dict "query" $query "block" $block "view" ($block.design.view | default "sportchemy-card-view") )}}
-  {{ else }}
-    {{ range $index, $item := $query }}
-      {{ partial "functions/render_view" (dict "page" $block "item" . "view" ($block.design.view | default "sportchemy-card-view") "index" $index) }}
-    {{end}}
-  {{ end }}
-
-  {{ with $block.content.text_below }}<p>{{ . | emojify | $page.RenderString }}</p>{{ end }}
-
-  {{/* Archive link */}}
-  {{ $show_archive_link := $block.content.archive.enable | default (gt $count $items_count) }}
-  {{ if $show_archive_link | and $archive_page }}
-
-    {{ $archive_link := "" }}
-    {{ if $block.content.archive.link }}
-      {{ $archive_link = $block.content.archive.link | relLangURL }}
-    {{ else }}
-      {{ $archive_link = $archive_page.RelPermalink }}
-    {{ end }}
-
-    {{/* Localisation */}}
-    {{ $i18n := "more_match" }}
-
-    {{ $archive_text := $block.content.archive.text | default (i18n $i18n) | default "See all" }}
-
-    <div class="see-all">
-      <a href="{{ $archive_link }}">
-        {{ $archive_text | emojify }}
-        <i class="fas fa-angle-right"></i>
-      </a>
-    </div>
-  {{ end }}
-
-</div>
-
-{{ partial "blocks/sportchemy-collection.ics" . }}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:test
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+{{ range $index, $item := $query }}
+BEGIN:VEVENT
+DTSTAMP:{{dateFormat "20060102T150405" .Params.date}}
+DTSTART:{{dateFormat "20060102T150405" .Params.date}}
+DTEND:{{ (.Params.date.Add (time.ParseDuration "90m")).Format "20060102T150405" }}
+SUMMARY:{{.Params.home.name}} vs. {{.Params.away.name}}
+END:VEVENT
+{{ end }}
+END:VCALENDAR
