@@ -56,11 +56,11 @@ sections:
       columns: '1'
 
   - block: sportchemy-collection
-    id:
+    id: tmp
     content:
       title: Match Table
       subtitle:
-      text: 
+      text:
       page_type: match
       # Choose how many pages you would like to display (0 = all pages)
       count: 6

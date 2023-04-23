@@ -1,71 +1,29 @@
-{{/* Sportchemy Blocks: sportchemy-collection */}}
-{{/* Documentation:  */}}
-{{/*
-    This is an adaptation of the Wowchemy Collection block
-    https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/modules/wowchemy/layouts/partials/blocks/collection.html
-*/}}
+{{/* Sportchemy Functions: sportchemy-match_filter */}}
 
 {{/*
----
-title: My page
-type: landing
-
-sections:
-  - block: sportchemy-collection
-    id:
-    content:
-      title:
-      subtitle:
-      text:
-      text_below:
-      # Choose how many matches you would like to display (0 = all pages)
-      count: 6
-      # Filter on criteria
-      filters:
-        # The folders to display content from
-        team:
-          -
-        season:
-          -
-        league:
-          -
-        tournament:
-          -
-        category:
-        tag:
-        featured_only: false
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        # you can also filter using a date range from "from" to "to"
-        from:
-        to:
-
-      # Choose how many pages you would like to offset by
-      # Useful if you wish to show the first item in the Featured widget
-      offset: 0
-      # Field to sort by, such as Date or details.match_day
-      sort_by: 'Date'
-      sort_ascending: false
-      archive:
-        enable: true
-    design:
-      # Choose a listing view from:
-      # sportchemy-card-view, sportchemy-table-view
-      view: sportchemy-card
-      view_params:
-        # additional parameters specific to each view
-      # Choose single or dual column layout
-      columns: '1'
----
+    Filter matches given some parameters.
+    It is used both by the sportchemy-collection block and the calendar pages.
 */}}
 
-{{/* Initialise */}}
-{{ $page := .wcPage }}
-{{ $block := .wcBlock }}
+{{/* Inputs:
+    Dictionary with the keys:
+      - count
+      - filters (see sportchemy-collection block or calendar archetype)
+      - offset
+      - sort_by
+      - sort_ascending
+*/}}
 
-{{ $items_offset := $block.content.offset | default 0 }}
-{{ $items_count := $block.content.count }}
+{{/* Outputs:
+    Dictionary:
+      - query: filtered match pages
+      - archive: filtered archived match pages
+*/}}
+
+{{ printf "%v" . }}
+
+{{ $items_offset := .offset | default 0 }}
+{{ $items_count := .count }}
 {{ if eq $items_count 0 }}
   {{ $items_count = 65535 }}
 {{ else }}
@@ -87,7 +45,7 @@ sections:
 {{ $archive_page = site.GetPage "Section" $page_type }}
 
 {{/* Some default filters from Wowchemy collection*/}}
-{{ $filters := $block.content.filters }}
+{{ $filters := .filters }}
 {{ if $filters.tag }}
   {{ $archive_page = site.GetPage (printf "tags/%s" (urlize $filters.tag)) }}
   {{ $query = $query | intersect $archive_page.Pages }}
@@ -133,8 +91,8 @@ sections:
 {{ $count := len $query }}
 
 {{/* Sort */}}
-{{ $sort_by := $block.content.sort_by | default "Date" }}
-{{ $sort_ascending := $block.content.sort_ascending | default (eq $block.content.order "asc") | default false }}
+{{ $sort_by := .sort_by | default "Date" }}
+{{ $sort_ascending := .sort_ascending | default (eq .order "asc") | default false }}
 {{ $sort_order := cond $sort_ascending "asc" "desc" }}
 {{ $query = sort $query $sort_by $sort_order }}
 
@@ -145,17 +103,4 @@ sections:
   {{ $query = first $items_count $query }}
 {{ end }}
 
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:test
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-{{ range $index, $item := $query }}
-BEGIN:VEVENT
-DTSTAMP:{{dateFormat "20060102T150405" .Params.date}}
-DTSTART:{{dateFormat "20060102T150405" .Params.date}}
-DURATION: P1H30M
-SUMMARY:{{.Params.home.name}} vs. {{.Params.away.name}}
-END:VEVENT
-{{ end }}
-END:VCALENDAR
+{{ return dict "query" $query "archive" $archive_page "count" .count "items_count" $items_count }}
