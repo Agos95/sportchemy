@@ -31,10 +31,9 @@
         {{end}}
       {{ end }}
 
-      {{ range .AlternativeOutputFormats }}
-        {{ printf "%v" .}}
-      {{ end }}
-
+      {{ with  .OutputFormats.Get "calendar" -}}
+        <p style="text-align:end"><a href="{{ .RelPermalink }}">Webcal</a></p>
+      {{- end }}
 
       {{ with .Content }}<p>{{ . | emojify | $.Page.RenderString }}</p>{{ end }}
     </div>

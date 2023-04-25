@@ -1,27 +1,31 @@
-{{ $matches := partial "functions/sportchemy-match_filter" (dict
+{{- $matches := partial "functions/sportchemy-match_filter" (dict
    "count" .Params.count
    "filters" .Params.filters
    "offset" .Params.offset
    "sort_by" .Params.sort_by
    "sort_ascending" .Params.sort_ascending)
-}}
+-}}
 
-{{ $query := $matches.query }}
-{{ $archive_page := $matches.archive_page }}
-{{ $count := $matches.count }}
-{{ $items_count := $matches.items_count}}
+{{- $query := $matches.query -}}
+{{- $archive_page := $matches.archive_page -}}
+{{- $count := $matches.count -}}
+{{- $items_count := $matches.items_count -}}
 
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:test
+PRODID:{{ (printf "-//%s//%s//%s" site.Title .Params.title site.Language) | urlize | upper }}
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-{{ range $index, $item := $query }}
+{{ range $index, $item := $query -}}
+{{- $matchInfo := partial "functions/sportchemy-get_match_info" $item.Params -}}
 BEGIN:VEVENT
+UID:{{ (printf "%s-%s-vs-%s@%s" (dateFormat "20060102T150405" $item.Params.date) $item.Params.home.name $item.Params.away.name site.Title ) | urlize }}
 DTSTAMP:{{dateFormat "20060102T150405" $item.Params.date}}
 DTSTART:{{dateFormat "20060102T150405" $item.Params.date}}
-DURATION: P1H30M
-SUMMARY:{{$item.Params.home.name}} vs. {{$item.Params.away.name}}
+DURATION:PT1H30M
+LOCATION;ALTREP="{{ $matchInfo.link }}":
+  {{ $item.Params.court.name }}
+SUMMARY:{{ printf "%s vs %s" $item.Params.home.name $item.Params.away.name }}
 END:VEVENT
-{{ end }}
+{{ end -}}
 END:VCALENDAR
