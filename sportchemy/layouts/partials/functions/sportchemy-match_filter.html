@@ -1,0 +1,104 @@
+{{/* Sportchemy Functions: sportchemy-match_filter */}}
+
+{{/*
+    Filter matches given some parameters.
+    It is used both by the sportchemy-collection block and the calendar pages.
+*/}}
+
+{{/* Inputs:
+    Dictionary with the keys:
+      - count
+      - filters (see sportchemy-collection block or calendar archetype)
+      - offset
+      - sort_by
+      - sort_ascending
+*/}}
+
+{{/* Outputs:
+    Dictionary:
+      - query: filtered match pages
+      - archive: filtered archived match pages
+*/}}
+
+{{ $items_offset := .offset | default 0 }}
+{{ $items_count := .count }}
+{{ if eq $items_count 0 }}
+  {{ $items_count = 65535 }}
+{{ else }}
+  {{ $items_count = $items_count | default 6 }}
+{{ end }}
+
+{{ $page_type := "match" }}
+
+{{/* Query */}}
+{{ $query := site.RegularPages }}
+{{ $archive_page := "" }}
+
+{{/*
+  Filters
+*/}}
+
+{{/* Get only 'match' pages */}}
+{{ $query = where $query "Type" $page_type }}
+{{ $archive_page = site.GetPage "Section" $page_type }}
+
+{{/* Some default filters from Wowchemy collection*/}}
+{{ $filters := .filters }}
+{{ if $filters.tag }}
+  {{ $archive_page = site.GetPage (printf "tags/%s" (urlize $filters.tag)) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $filters.category }}
+  {{ $archive_page = site.GetPage (printf "categories/%s" (urlize $filters.category)) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $filters.featured_only }}
+  {{ $query = where $query "Params.featured" "==" true }}
+{{ end }}
+{{ if $filters.exclude_featured }}
+  {{ $query = where $query "Params.featured" "!=" true }}
+{{ end }}
+{{ if $filters.exclude_past }}
+  {{ $query = where $query "Date" ">=" now }}
+{{ end }}
+{{ if $filters.exclude_future }}
+  {{ $query = where $query "Date" "<" now }}
+{{ end }}
+{{/* New filters for 'match' */}}
+{{ if $filters.team }}
+  {{ $query_home := where $query "Params.home.name" "in" $filters.team }}
+  {{ $query_away := where $query "Params.away.name" "in" $filters.team }}
+  {{ $query = union $query_home $query_away }}
+{{ end }}
+{{ if $filters.season }}
+  {{ $query = where $query "Params.season" "in" $filters.season }}
+{{ end }}
+{{ if $filters.league }}
+  {{ $query = where $query "Params.league" "in" $filters.league }}
+{{ end }}
+{{ if $filters.tournament }}
+  {{ $query = where $query "Params.tournament" "in" $filters.tournament }}
+{{ end }}
+{{ if $filters.from }}
+  {{ $query = where $query "Date" ">=" (time $filters.from) }}
+{{ end }}
+{{ if $filters.to }}
+  {{ $query = where $query "Date" "<=" (time $filters.to) }}
+{{ end }}
+
+{{ $count := len $query }}
+
+{{/* Sort */}}
+{{ $sort_by := .sort_by | default "Date" }}
+{{ $sort_ascending := .sort_ascending | default (eq .order "asc") | default false }}
+{{ $sort_order := cond $sort_ascending "asc" "desc" }}
+{{ $query = sort $query $sort_by $sort_order }}
+
+{{/* Offset and Limit */}}
+{{ if gt $items_offset 0 }}
+  {{ $query = first $items_count (after $items_offset $query) }}
+{{ else }}
+  {{ $query = first $items_count $query }}
+{{ end }}
+
+{{ return dict "query" $query "archive" $archive_page "count" .count "items_count" $items_count }}

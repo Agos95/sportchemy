@@ -1,0 +1,43 @@
+{{- define "main" -}}
+
+{{ $matches := partial "functions/sportchemy-match_filter" (dict
+   "count" .Params.count
+   "filters" .Params.filters
+   "offset" .Params.offset
+   "sort_by" .Params.sort_by
+   "sort_ascending" .Params.sort_ascending)
+}}
+
+{{ $query := $matches.query }}
+{{ $archive_page := $matches.archive_page }}
+{{ $count := $matches.count }}
+{{ $items_count := $matches.items_count}}
+
+<div class="container sportchemy-container">
+  <div class="row">
+    <div class="article-container pt-3">
+      {{ with .Params.title }}<h1>{{ . | markdownify | emojify }}</h1>{{ end }}
+      {{ with .Params.subtitle }}<p class="page-subtitle">{{ . | markdownify | emojify }}</p>{{ end }}
+    </div>
+
+
+    <div class="col-12 sportchemy-calendar">
+      {{ $view_hook := printf "partials/views/%s-hook.html" .Params.view }}
+      {{ if templates.Exists $view_hook }}
+        {{ partial $view_hook (dict "query" $query "block" .Params "view" (.Params.view | default "sportchemy-table-view") )}}
+      {{ else }}
+        {{ range $index, $item := $query }}
+          {{ partial "functions/render_view" (dict "page" .Params "item" . "view" (.Params.view | default "sportchemy-table-view") "index" $index) }}
+        {{end}}
+      {{ end }}
+
+      {{ with  .OutputFormats.Get "calendar" -}}
+        <p style="text-align:end"><a href="{{ .RelPermalink }}">Webcal</a></p>
+      {{- end }}
+
+      {{ with .Content }}<p>{{ . | emojify | $.Page.RenderString }}</p>{{ end }}
+    </div>
+  </div>
+</div>
+
+{{- end -}}
