@@ -1,0 +1,105 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SPORTCHEMY//NBA-CALENDAR//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20911029t190000-atlanta-hawks-vs-toronto-raptors@sportchemy
+DTSTAMP:20911029T190000
+DTSTART:20911029T190000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/CTsj5DQpPTXNnxvB9":
+  Air Canada Centre
+SUMMARY:Atlanta Hawks vs Toronto Raptors
+END:VEVENT
+BEGIN:VEVENT
+UID:20911029t190000-milwaukee-bucks-vs-charlotte-hornets@sportchemy
+DTSTAMP:20911029T190000
+DTSTART:20911029T190000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/GsrXsbU6djnyWbN89":
+  Time Warner Cable Arena
+SUMMARY:Milwaukee Bucks vs Charlotte Hornets
+END:VEVENT
+BEGIN:VEVENT
+UID:20911029t190000-philadelphia-76ers-vs-indiana-pacers@sportchemy
+DTSTAMP:20911029T190000
+DTSTART:20911029T190000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/RFpiDjUD6mS5Xb48A":
+  Bankers Life Fieldhouse
+SUMMARY:Philadelphia 76ers vs Indiana Pacers
+END:VEVENT
+BEGIN:VEVENT
+UID:20911028t200000-dallas-mavericks-vs-san-antonio-spurs@sportchemy
+DTSTAMP:20911028T200000
+DTSTART:20911028T200000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/8aM6Z2gzLrBMDked6":
+  AT&T Center
+SUMMARY:Dallas Mavericks vs San Antonio Spurs
+END:VEVENT
+BEGIN:VEVENT
+UID:20911028t200000-houston-rockets-vs-los-angeles-lakers@sportchemy
+DTSTAMP:20911028T200000
+DTSTART:20911028T200000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/TYpkXY6V54LvskhPA":
+  STAPLES Center
+SUMMARY:Houston Rockets vs Los Angeles Lakers
+END:VEVENT
+BEGIN:VEVENT
+UID:20911028t200000-orlando-magic-vs-new-orleans-pelicans@sportchemy
+DTSTAMP:20911028T200000
+DTSTART:20911028T200000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/kzD5aSNKGW6byYvu9":
+  Smoothie King Center
+SUMMARY:Orlando Magic vs New Orleans Pelicans
+END:VEVENT
+BEGIN:VEVENT
+UID:20221028t220000-los-angeles-lakers-vs-golden-state-warriors@sportchemy
+DTSTAMP:20221028T220000
+DTSTART:20221028T220000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/Dwk6Ua7ek4msvCz99":
+  Chase Center
+SUMMARY:Los Angeles Lakers vs Golden State Warriors
+END:VEVENT
+BEGIN:VEVENT
+UID:20221021t193000-boston-celtics-vs-miami-heat@sportchemy
+DTSTAMP:20221021T193000
+DTSTART:20221021T193000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/yAgEZ7PjkH7aZRJz9":
+  FTX Arena
+SUMMARY:Boston Celtics vs Miami Heat
+END:VEVENT
+BEGIN:VEVENT
+UID:20221019t220000-dallas-mavericks-vs-phoenix-suns@sportchemy
+DTSTAMP:20221019T220000
+DTSTART:20221019T220000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/NVAeEsfV3UJAXkhP9":
+  Footprint Center
+SUMMARY:Dallas Mavericks vs Phoenix Suns
+END:VEVENT
+BEGIN:VEVENT
+UID:20221019t210000-denver-nuggets-vs-utah-jazz@sportchemy
+DTSTAMP:20221019T210000
+DTSTART:20221019T210000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/hRXEb3opxGun8bDi8":
+  Vivint Arena
+SUMMARY:Denver Nuggets vs Utah Jazz
+END:VEVENT
+BEGIN:VEVENT
+UID:20221019t193000-chicago-bulls-vs-miami-heat@sportchemy
+DTSTAMP:20221019T193000
+DTSTART:20221019T193000
+DURATION:PT1H30M
+LOCATION;ALTREP="https://goo.gl/maps/yAgEZ7PjkH7aZRJz9":
+  FTX Arena
+SUMMARY:Chicago Bulls vs Miami Heat
+END:VEVENT
+END:VCALENDAR
