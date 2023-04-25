@@ -20,8 +20,6 @@
       - archive: filtered archived match pages
 */}}
 
-{{ printf "%v" . }}
-
 {{ $items_offset := .offset | default 0 }}
 {{ $items_count := .count }}
 {{ if eq $items_count 0 }}

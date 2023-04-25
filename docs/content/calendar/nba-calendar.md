@@ -3,14 +3,14 @@ outputs:
 - html
 - Calendar
 
-title: "{{ replace .Name "-" " " | title }}"
+title: NBA Calendar
 subtitle:
 summary:
 
-publishDate: {{ .Date }}
+publishDate: 2023-01-01
 
 # Choose how many matches you would like to display (0 = all pages)
-count: 6
+count: 0
 # Filter on criteria
 filters:
   # The folders to display content from
@@ -41,3 +41,4 @@ sort_ascending: false
 
 view: sportchemy-table-view
 ---
+

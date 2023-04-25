@@ -1,0 +1,27 @@
+{{ $matches := partial "functions/sportchemy-match_filter" (dict
+   "count" .Params.count
+   "filters" .Params.filters
+   "offset" .Params.offset
+   "sort_by" .Params.sort_by
+   "sort_ascending" .Params.sort_ascending)
+}}
+
+{{ $query := $matches.query }}
+{{ $archive_page := $matches.archive_page }}
+{{ $count := $matches.count }}
+{{ $items_count := $matches.items_count}}
+
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:test
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+{{ range $index, $item := $query }}
+BEGIN:VEVENT
+DTSTAMP:{{dateFormat "20060102T150405" $item.Params.date}}
+DTSTART:{{dateFormat "20060102T150405" $item.Params.date}}
+DURATION: P1H30M
+SUMMARY:{{$item.Params.home.name}} vs. {{$item.Params.away.name}}
+END:VEVENT
+{{ end }}
+END:VCALENDAR
