@@ -1,7 +1,7 @@
 ---
 title: Chicago Bulls vs Miami Heat
 summary: null
-date: '2022-10-19 19:30:00'
+date: '2022-10-19 18:30:00'
 home:
   name: Chicago Bulls
   logo: null
