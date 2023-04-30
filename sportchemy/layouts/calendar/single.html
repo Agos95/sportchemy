@@ -34,7 +34,7 @@
       {{ with .OutputFormats.Get "calendar" -}}
         <div class="sportchemy-buttons">
           <a href="{{ .RelPermalink }}" role="button" target="_blank" rel="noopener" class="btn btn-primary sportchemy-btn"><i class="fa-solid fa-download"></i></i> Download ICAL</a>
-          <a href="https://www.google.com/calendar/render?{{ querify "cid" .Permalink }}" target="_blank" rel="noopener" role="button" class="btn btn-primary sportchemy-btn"><i class="fa-solid fa-calendar-plus"></i> {{ i18n "sportchemy_add_to" }} <i class="fa-brands fa-google"></i> Calendar</a>
+          <a href="https://www.google.com/calendar/render?cid={{ .Permalink }}" target="_blank" rel="noopener" role="button" class="btn btn-primary sportchemy-btn"><i class="fa-solid fa-calendar-plus"></i> {{ i18n "sportchemy_add_to" }} <i class="fa-brands fa-google"></i> Calendar</a>
         </div>
       {{- end }}
 
