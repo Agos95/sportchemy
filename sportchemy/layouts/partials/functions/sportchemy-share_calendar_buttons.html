@@ -1,0 +1,35 @@
+{{/* Sportchemy Functions: sportchemy-share_calendar_buttons */}}
+
+{{/*
+    Creates the buttons to share the specified calendar:
+    - Download ICAL: download the ical calendar file
+    - Add to G Calendar: incorporate the calendar to Google Calendar
+    - Webcal Link: copy the webcal calendar link to clipboard
+*/}}
+
+{{/* Inputs:
+    Calendar page path (eg. "/calendar/my-calendar.md")
+*/}}
+
+{{ $calendar := site.GetPage . }}
+{{ with $calendar.OutputFormats.Get "calendar" -}}
+  <div class="sportchemy-buttons">
+      <a href="{{ .RelPermalink }}" role="button" target="_blank" rel="noopener" class="btn btn-primary sportchemy-btn">
+        <i class="fa-solid fa-download"></i></i> Download ICAL
+      </a>
+      <a href="https://www.google.com/calendar/render?cid={{ .Permalink }}" target="_blank" rel="noopener" role="button" class="btn btn-primary sportchemy-btn">
+        <i class="fa-solid fa-calendar-plus"></i> {{ i18n "sportchemy_add_to" | default "Add to" }} <i class="fa-brands fa-google"></i> Calendar
+      </a>
+      <button class="btn btn-primary sportchemy-btn" type="button" onclick="copy_weblink()" title="{{ i18n "sportchemy_copied" | default "Copied!" }}" data-toggle="tooltip" data-trigger="click" data-placement="bottom" data-custom-class="sportchemy-tooltip">
+        <i class="fa-solid fa-copy"></i> Webcal Link
+      </button>
+  </div>
+
+  <script>
+    function copy_weblink() {
+      navigator.clipboard.writeText( {{ .Permalink }} );
+    }
+  </script>
+{{- end }}
+
+{{ return }}

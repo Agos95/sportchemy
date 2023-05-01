@@ -2,6 +2,8 @@
 
 - id: sportchemy_add_to
   translation: Aggiungi a
+- id: sportchemy_copied
+  translation: Copiato negli Appunti!
 - id: sportchemy_court
   translation: Campo
 - id: sportchemy_score

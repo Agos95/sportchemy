@@ -2,6 +2,8 @@
 
 - id: sportchemy_add_to
   translation: Add to
+- id: sportchemy_copied
+  translation: Copied to Clipboard!
 - id: sportchemy_court
   translation: Court
 - id: sportchemy_score

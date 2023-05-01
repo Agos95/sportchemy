@@ -31,36 +31,7 @@
         {{end}}
       {{ end }}
 
-      {{ with .OutputFormats.Get "calendar" -}}
-        <div class="sportchemy-buttons">
-          <a href="{{ .RelPermalink }}" role="button" target="_blank" rel="noopener" class="btn btn-primary sportchemy-btn"><i class="fa-solid fa-download"></i></i> Download ICAL</a>
-          <a href="https://www.google.com/calendar/render?cid={{ .Permalink }}" target="_blank" rel="noopener" role="button" class="btn btn-primary sportchemy-btn"><i class="fa-solid fa-calendar-plus"></i> {{ i18n "sportchemy_add_to" }} <i class="fa-brands fa-google"></i> Calendar</a>
-        </div>
-      {{- end }}
-
-      {{/*
-      {{ with .OutputFormats.Get "calendar" -}}
-        <ul class="cta-group">
-          <li>
-            <a href="{{ .RelPermalink }}" target="_blank" rel="noopener" class="btn btn-primary px-2 py-2" style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="Copy"> <i class="fa-regular fa-calendar"></i> Copy </a>
-          </li>
-          <button class="btn btn-outline-primary">
-            <a href={{ .RelPermalink }} target="_blank" rel="noopener" >
-              Download ICS <i class="fas fa-angle-right"></i>
-            </a>
-          </button>
-        </ul>
-      {{- end }}
-
-      {{ printf "%#v" ((.OutputFormats.Get "calendar").Permalink) }}
-
-      IMPORT IN GOOGLE LINK:
-
-      https://www.google.com/calendar/render?cid=webcal://agos95.github.io/sportchemy/calendar/nba-calendar/index.ics
-
-      printf "https://www.google.com/calendar/render?cid=%s" ((.OutputFormats.Get "calendar").Permalink) | safeURL
-
-      */}}
+      {{ partial "functions/sportchemy-share_calendar_buttons" .File.Path }}
 
       {{ with .Content }}<p>{{ . | emojify | $.Page.RenderString }}</p>{{ end }}
     </div>

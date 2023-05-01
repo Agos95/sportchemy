@@ -7,6 +7,10 @@ main:
   - name: Home
     url: /
     weight: 10
+  - name: Calendar
+    url: calendar/nba-calendar
+    weight: 20
   - name: Docs
     url: docs
-    weight: 20
+    weight: 30
+
