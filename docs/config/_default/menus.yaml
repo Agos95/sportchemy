@@ -4,9 +4,9 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: Home
-    url: /
-    weight: 10
+  #- name: Home
+  #  url: /
+  #  weight: 10
   - name: Calendar
     url: calendar/nba-calendar
     weight: 20

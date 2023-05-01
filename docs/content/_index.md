@@ -14,6 +14,8 @@ sections:
 
         {{< cta cta_text="Learn more in the **Docs**!" cta_link="docs" cta_new_tab="false" cta_alt_text="See the code on **GitHub**!" cta_alt_link="https://github.com/Agos95/sportchemy" cta_alt_new_tab="true" >}}
 
+        {{< sportchemy-match-card "/match/2022-23/NBA/Regular Season/2022-10-21 19-30_Boston Celtics-Miami Heat.md" >}}
+
   - block: sportchemy-collection
     id:
     content:
