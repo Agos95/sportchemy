@@ -1,3 +1,35 @@
+{{/* Sportchemy Functions: sportchemy-get_match_info */}}
+
+{{/*
+    Get information from a match page:
+    - scores default to ""
+    - the winning team gets the "team-winner" css class, useful for styling
+    - logos are searched with this order:
+      1. using the $params.[home|away].logo parameter
+      2. looking at the corresponding entry in "data/sportchemy/team_logo.yaml"
+      3. otherwise ther default "assets/media/sportchemy/team_placeholder.png" is used
+    - court link is contructed in thsi way:
+      1. using the provided $params.court.link
+      2. gmap link "https://maps.google.com?q=ADDRESS",
+         where ADDRESS is the $cparams.court.address or $params.court.name.
+      3. defaults to "#"
+*/}}
+
+{{/* Inputs:
+    match page Params
+*/}}
+
+{{/* Outputs:
+    Dictionary:
+      - scoreHome: home team score
+      - scoreAway: away team score
+      - classHome: home team additional css calss
+      - classAway: away team additional css class
+      - logoHome: home team logo
+      - logoAway: away team logo
+      - link: court link
+*/}}
+
 {{ $params := . }}
 
 {{/* Get winner */}}
