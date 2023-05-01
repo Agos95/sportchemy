@@ -7,15 +7,25 @@
 {{/*
     Parameters
     ----------
-    file :
+    match :
         Absolute path to the match file from the "content" directory.
-        This is a positional parameter.
-*/}}
-
-{{/*
-{{ $match := site.GetPage (.Get 0) }}
-{{ partial "functions/render_view" ( dict "page" "" "item" $match "view" "sportchemy-card-view" "index" 0 ) }}
-
-{{ printf "%v" $match }}
+    card_class : default "col-lg-4 col-md-6"
+        CSS classes for the card div container.
+    row_container : default "true"
+        If "true", wrap the card div in a row container with central aligment
 
 */}}
+
+{{ $match := site.GetPage ( .Get "match" ) }}
+{{ $card_class := .Get "card_class" | default "col-lg-4 col-md-6"}}
+
+{{ if eq (.Get "row_container" | default "true") "true"}}
+<div class="row justify-content-center">
+{{ end}}
+  <div class="{{ $card_class }}">
+      {{ partial "functions/render_view" ( dict "page" "" "item" $match "view" "sportchemy-card-view" "index" 0 ) }}
+  </div>
+{{ if eq (.Get "row_container") "true"}}
+</div>
+{{ end}}
+

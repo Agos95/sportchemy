@@ -1,8 +1,16 @@
 {{ $query := .query }}
 {{ $block := .block }}
 
+{{/* Column type based on 1/2 columns layout */}}
+{{ $container_class := ""}}
+{{ if (eq $block.design.columns "1")}}
+  {{ $container_class = "col-lg-4"}}
+{{ end }}
+
 <div class="row justify-content-center">
   {{ range $index, $item := $query }}
-    {{ partial "functions/render_view" ( dict "page" $block "item" . "view" $.view "index" $index ) }}
+    <div class="{{ $container_class }} col-md-6">
+      {{ partial "functions/render_view" ( dict "page" $block "item" . "view" $.view "index" $index ) }}
+    </div>
   {{end}}
 <div>

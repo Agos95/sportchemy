@@ -5,41 +5,33 @@
 {{/* Proces some match info */}}
 {{ $matchInfo := partial "functions/sportchemy-get_match_info" $params }}
 
-{{/* Column type based on 1/2 columns layout */}}
-{{ $container_class := ""}}
-{{ if (eq .page.design.columns "1")}}
-  {{ $container_class = "col-lg-4"}}
-{{ end }}
-
-<div class="{{ $container_class }} col-md-6">
-  <div class="card text-center sportchemy-card">
-    <div class="card-header">
-      {{ time.Format "Mon, 2 Jan 2006" $params.date | title }}
+<div class="card text-center sportchemy-card">
+  <div class="card-header">
+    {{ time.Format "Mon, 2 Jan 2006" $params.date | title }}
+  </div>
+  <div class="row no-gutters align-items-start justify-content-center">
+    <div class="col-4 order-first">
+      <img src={{ $matchInfo.logoHome }} class="team-logo"><br>
+      <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>
     </div>
-    <div class="row no-gutters align-items-start justify-content-center">
-      <div class="col-4 order-first">
-        <img src={{ $matchInfo.logoHome }} class="team-logo"><br>
-        <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>
-      </div>
-      <div class="col-4 order-last">
-        <img src={{ $matchInfo.logoAway }} class="team-logo"><br>
-        <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
-      </div>
-      <div class="col-4 card-body">
-        <h3 class="card-title">
-          {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
-            {{ time.Format "15:05" $params.date }}
-          {{ else }}
-            <span class="team-points {{ $matchInfo.classHome }}">{{ $matchInfo.scoreHome }}</span> - <span class="team-points {{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}</span>
-          {{ end }}
-        </h3>
-        <div class="card-subtitle">
-          {{ $params.league | title }}
-        </div>
+    <div class="col-4 order-last">
+      <img src={{ $matchInfo.logoAway }} class="team-logo"><br>
+      <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
+    </div>
+    <div class="col-4 card-body">
+      <h3 class="card-title">
+        {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
+          {{ time.Format "15:05" $params.date }}
+        {{ else }}
+          <span class="team-points {{ $matchInfo.classHome }}">{{ $matchInfo.scoreHome }}</span> - <span class="team-points {{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}</span>
+        {{ end }}
+      </h3>
+      <div class="card-subtitle">
+        {{ $params.league | title }}
       </div>
     </div>
-    <div class="card-footer">
-      <a href={{ $matchInfo.link }} target="_blank" class="card-link">{{ $params.court.name | default "&nbsp;" | safeHTML }}</a>
-    </div>
+  </div>
+  <div class="card-footer">
+    <a href={{ $matchInfo.link }} target="_blank" class="card-link">{{ $params.court.name | default "&nbsp;" | safeHTML }}</a>
   </div>
 </div>
