@@ -11,6 +11,9 @@
       <th></th> <!-- Away Team Logo -->
       <th>{{ i18n "sportchemy_team_away" | default "Away"  }}</th>
       <th>{{ i18n "sportchemy_court"     | default "Court" }}</th>
+      {{ if $block.design.view_params.show_league }}
+      <th>{{ i18n "sportchemy_league"    | default "League" }}</th>
+      {{ end }}
     </tr>
   </thead>
   <tbody>

@@ -6,6 +6,8 @@
   translation: Copiato negli Appunti!
 - id: sportchemy_court
   translation: Campo
+- id: sportchemy_league
+  translation: Campionato
 - id: sportchemy_score
   translation: Risultato
 - id: sportchemy_team_away

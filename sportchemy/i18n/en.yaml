@@ -6,6 +6,8 @@
   translation: Copied to Clipboard!
 - id: sportchemy_court
   translation: Court
+- id: sportchemy_league
+  translation: League
 - id: sportchemy_score
   translation: Score
 - id: sportchemy_team_away

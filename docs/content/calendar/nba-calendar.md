@@ -37,8 +37,12 @@ filters:
 offset: 0
 # Field to sort by, such as Date or details.match_day
 sort_by: 'Date'
-sort_ascending: false
+sort_ascending: true
 
 view: sportchemy-table-view
+design:
+  view_params:
+    date_format: "6 Jan 2006"
+    show_league: true
 ---
 

@@ -22,6 +22,8 @@
         width: 40%;
         display: inline;
         padding-top: .25rem;
+        object-fit: contain;
+        object-position: center;
     }
 
     .team-name {

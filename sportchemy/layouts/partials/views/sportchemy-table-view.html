@@ -30,4 +30,9 @@
   <td>
     <a href={{ $matchInfo.link }} target="_blank">{{ $params.court.name }}</a>
   </td>
+  {{ if $page.design.view_params.show_league }}
+  <td>
+    <span> {{ $params.league }} </span>
+  </td>
+  {{ end }}
 </tr>

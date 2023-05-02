@@ -64,7 +64,11 @@ sections:
       # sportchemy-card-view, sportchemy-table-view
       view: sportchemy-card-view
       view_params:
-        # additional parameters specific to each view
+        # common parameters
+        date_format:
+        time_format:
+        # additional parameters are specific to each view
+        # ...
       # Choose single or dual column layout
       columns: '1'
 ```
@@ -89,11 +93,9 @@ Additional parameters are added to filter games:
 
 ## Views
 
-Sportchemy defines two views for its Collection block.
-
-{{% callout warning %}}
-As for now, the `design/view_params` parameter is not yet implemented, but in the future it will allow to customize some aspects of the views.
-{{%/ callout %}}
+Sportchemy defines two views for its Collection block.  
+Some customizations can be specified using the `degign/view_params` parameter. See the description of each view to see which 
+options are available.
 
 ### Card View
 
@@ -103,11 +105,25 @@ The `sportchemy-card-view` layout displays games using Bootstrap cards:
 
 Cards are arranged in 3, 2 or 1 columns, depending on the screen size.
 
+#### Card View Parameters
+
+- *`date_format` : default `Mon, 2 Jan 2006`*
+- *`time_format` : default `15:05`*  
+  Date and time are defined using [Hugo constants](https://wowchemy.com/docs/getting-started/customization/#datetime-options).
+
 ### Table View
 
 The `sportchemy-table-view` layout displays games using a Table:
 
 {{< figure src="table-view.png" >}}
+
+#### Table View Parameters
+
+- *`date_format` : default `Mon, 2 Jan 2006`*
+- *`time_format` : default `15:05`*  
+  Date and time are defined using [Hugo constants](https://wowchemy.com/docs/getting-started/customization/#datetime-options).
+- *`show_league` : default `false`*  
+  If `true`, add a column which shows the league of each match. Can be useful in case of multiple leagues in the same table.
 
 ### View Hooks
 
