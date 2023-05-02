@@ -5,28 +5,44 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:NBA Calendar - Sportchemy
 BEGIN:VEVENT
-UID:20911029t190000-atlanta-hawks-vs-toronto-raptors@sportchemy
-DTSTAMP:20230224T090647
-DTSTART:20911029T180000
+UID:20221019t183000-chicago-bulls-vs-miami-heat@sportchemy
+DTSTAMP:20230224T090153
+DTSTART:20221019T163000
 DURATION:PT1H30M
-LOCATION:Air Canada Centre
-SUMMARY:Atlanta Hawks vs Toronto Raptors
+LOCATION:FTX Arena
+SUMMARY:Chicago Bulls vs Miami Heat
 END:VEVENT
 BEGIN:VEVENT
-UID:20911029t190000-milwaukee-bucks-vs-charlotte-hornets@sportchemy
-DTSTAMP:20230224T090647
-DTSTART:20911029T180000
+UID:20221019t210000-denver-nuggets-vs-utah-jazz@sportchemy
+DTSTAMP:20230224T090153
+DTSTART:20221019T190000
 DURATION:PT1H30M
-LOCATION:Time Warner Cable Arena
-SUMMARY:Milwaukee Bucks vs Charlotte Hornets
+LOCATION:Vivint Arena
+SUMMARY:Denver Nuggets vs Utah Jazz
 END:VEVENT
 BEGIN:VEVENT
-UID:20911029t190000-philadelphia-76ers-vs-indiana-pacers@sportchemy
-DTSTAMP:20230224T090647
-DTSTART:20911029T180000
+UID:20221019t220000-dallas-mavericks-vs-phoenix-suns@sportchemy
+DTSTAMP:20230224T090153
+DTSTART:20221019T200000
 DURATION:PT1H30M
-LOCATION:Bankers Life Fieldhouse
-SUMMARY:Philadelphia 76ers vs Indiana Pacers
+LOCATION:Footprint Center
+SUMMARY:Dallas Mavericks vs Phoenix Suns
+END:VEVENT
+BEGIN:VEVENT
+UID:20221021t193000-boston-celtics-vs-miami-heat@sportchemy
+DTSTAMP:20230224T090153
+DTSTART:20221021T173000
+DURATION:PT1H30M
+LOCATION:FTX Arena
+SUMMARY:Boston Celtics vs Miami Heat
+END:VEVENT
+BEGIN:VEVENT
+UID:20221028t220000-los-angeles-lakers-vs-golden-state-warriors@sportchemy
+DTSTAMP:20230224T090153
+DTSTART:20221028T200000
+DURATION:PT1H30M
+LOCATION:Chase Center
+SUMMARY:Los Angeles Lakers vs Golden State Warriors
 END:VEVENT
 BEGIN:VEVENT
 UID:20911028t200000-dallas-mavericks-vs-san-antonio-spurs@sportchemy
@@ -53,43 +69,27 @@ LOCATION:Smoothie King Center
 SUMMARY:Orlando Magic vs New Orleans Pelicans
 END:VEVENT
 BEGIN:VEVENT
-UID:20221028t220000-los-angeles-lakers-vs-golden-state-warriors@sportchemy
-DTSTAMP:20230224T090153
-DTSTART:20221028T200000
+UID:20911029t190000-atlanta-hawks-vs-toronto-raptors@sportchemy
+DTSTAMP:20230224T090647
+DTSTART:20911029T180000
 DURATION:PT1H30M
-LOCATION:Chase Center
-SUMMARY:Los Angeles Lakers vs Golden State Warriors
+LOCATION:Air Canada Centre
+SUMMARY:Atlanta Hawks vs Toronto Raptors
 END:VEVENT
 BEGIN:VEVENT
-UID:20221021t193000-boston-celtics-vs-miami-heat@sportchemy
-DTSTAMP:20230224T090153
-DTSTART:20221021T173000
+UID:20911029t190000-milwaukee-bucks-vs-charlotte-hornets@sportchemy
+DTSTAMP:20230224T090647
+DTSTART:20911029T180000
 DURATION:PT1H30M
-LOCATION:FTX Arena
-SUMMARY:Boston Celtics vs Miami Heat
+LOCATION:Time Warner Cable Arena
+SUMMARY:Milwaukee Bucks vs Charlotte Hornets
 END:VEVENT
 BEGIN:VEVENT
-UID:20221019t220000-dallas-mavericks-vs-phoenix-suns@sportchemy
-DTSTAMP:20230224T090153
-DTSTART:20221019T200000
+UID:20911029t190000-philadelphia-76ers-vs-indiana-pacers@sportchemy
+DTSTAMP:20230224T090647
+DTSTART:20911029T180000
 DURATION:PT1H30M
-LOCATION:Footprint Center
-SUMMARY:Dallas Mavericks vs Phoenix Suns
-END:VEVENT
-BEGIN:VEVENT
-UID:20221019t210000-denver-nuggets-vs-utah-jazz@sportchemy
-DTSTAMP:20230224T090153
-DTSTART:20221019T190000
-DURATION:PT1H30M
-LOCATION:Vivint Arena
-SUMMARY:Denver Nuggets vs Utah Jazz
-END:VEVENT
-BEGIN:VEVENT
-UID:20221019t183000-chicago-bulls-vs-miami-heat@sportchemy
-DTSTAMP:20230224T090153
-DTSTART:20221019T163000
-DURATION:PT1H30M
-LOCATION:FTX Arena
-SUMMARY:Chicago Bulls vs Miami Heat
+LOCATION:Bankers Life Fieldhouse
+SUMMARY:Philadelphia 76ers vs Indiana Pacers
 END:VEVENT
 END:VCALENDAR
