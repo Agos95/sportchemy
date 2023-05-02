@@ -19,13 +19,13 @@
 {{ $match := site.GetPage ( .Get "match" ) }}
 {{ $card_class := .Get "card_class" | default "col-lg-4 col-md-6"}}
 
-{{ if eq (.Get "row_container" | default "true") "true"}}
+{{ if eq (.Get "row_container" | default "true") "true" }}
 <div class="row justify-content-center">
 {{ end}}
   <div class="{{ $card_class }}">
       {{ partial "functions/render_view" ( dict "page" "" "item" $match "view" "sportchemy-card-view" "index" 0 ) }}
   </div>
-{{ if eq (.Get "row_container") "true"}}
+{{ if eq (.Get "row_container") "true" }}
 </div>
 {{ end}}
 

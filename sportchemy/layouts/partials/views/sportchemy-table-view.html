@@ -1,19 +1,22 @@
-{{ $item := .item }}
-{{ $link := $item.RelPermalink }}
-{{ $params := $item.Params}}
+{{ $item := .item }} {{/* Hugo Match 'Page' object */}}
+{{ $params := $item.Params }} {{/* Match Page Params */}}
+{{ $page := .page }} {{/* Block or Page where the view is called */}}
 
-{{/* Proces some match info */}}
+{{/* Process some match info */}}
 {{ $matchInfo := partial "functions/sportchemy-get_match_info" $params }}
+{{/* View params */}}
+{{ $date_format := $page.design.view_params.date_format | default "2 Jan" }}
+{{ $time_format := $page.design.view_params.time_format | default "15:05" }}
 
 <tr>
-  <td class="date"> {{ time.Format "2 Jan" $params.date | title }} </td>
+  <td class="date"> {{ time.Format $date_format $params.date | title }} </td>
   <td class="team-name">
     <span class="{{ $matchInfo.classHome }}">{{ $params.home.name }}</span>
   </td>
   <td class="team-logo"> <img src={{ $matchInfo.logoHome }}> </td>
   <td class="team-points">
     {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
-      <span>{{ time.Format "15:05" $params.date }}</span>
+      <span>{{ time.Format $time_format $params.date }}</span>
     {{ else }}
       <span class="{{ $matchInfo.classHome }}">
         {{ $matchInfo.scoreHome }}</span>&nbsp;-&nbsp;<span class="{{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}
