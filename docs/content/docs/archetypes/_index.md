@@ -1,7 +1,7 @@
 ---
 # Title, summary, and page position.
-title: Match
-summary: A match is a new archetype which represents a single game.
+title: New Page Archetypes
+summary: New page archetypes which describe important events such as matches, and calendars.
 weight: 1
 #icon: basketball
 #icon_pack: fas
@@ -13,7 +13,7 @@ type: book # Do not modify.
 {{< toc hide_on="xl" >}}
 
 
-## Archetype
+## Match
 
 Sportchemy defines a new archetype named `match` which represents a single game.
 
@@ -69,7 +69,7 @@ featured: false
 ---
 ```
 
-## Parameters
+### Parameters
 
 - `title`: Title of the match
 - `summary`: Present to be aligned with other Wowchemy archetypes, but not used
@@ -129,3 +129,84 @@ In this way, both match and publish dates are set to the same timezones. Otherwi
 {{% /callout %}}
 - `tags`: Tags to associate with the match.
 - `featured`: set to `true` for a featured match (can be useful for filtering in blocks).
+
+
+## Calendar
+
+A `calendar` is a collection of `matches`. In each calendar you can use a series of filters to display only the relevant gammes.  
+A `calendar` can be rendered both as `html` page, and as `ics`, allowing users to import matches into their own calendar application.
+
+To create a new calendar page:
+```
+hugo new --kind calendar calendar/my-calendar-name.md
+```
+
+An example of calendar page is:
+
+```yaml
+---
+outputs:
+- html
+- Calendar # automatically create an associated ical file
+
+title: NBA Calendar
+subtitle:
+summary:
+
+publishDate: 2023-01-01
+
+# Choose how many matches you would like to display (0 = all pages)
+count: 0
+# Filter on criteria
+filters:
+  # The folders to display content from
+  team:
+    # -
+  season:
+    # -
+  league:
+    # -
+  tournament:
+    # -
+  category:
+  tag:
+  featured_only: false
+  exclude_featured: false
+  exclude_future: false
+  exclude_past: false
+  # you can also filter using a date range from "from" to "to"
+  from:
+  to:
+
+# Choose how many pages you would like to offset by
+# Useful if you wish to show the first item in the Featured widget
+offset: 0
+# Field to sort by, such as Date or details.match_day
+sort_by: 'Date'
+sort_ascending: true
+
+view: sportchemy-table-view
+design:
+  view_params:
+    date_format: "6 Jan 2006"
+    show_league: true
+---
+```
+
+which is rendered as [this page]({{< relref "../../calendar/nba-calendar" >}}).
+
+### Parameters
+
+- `outputs`: available outputs for a `calendar` page are:
+  - `html` to cretate the webpage.
+  - `Calendar` to create the associated `ics` file.
+  
+  If a calendar is displayed at `https://my-website.com/calendar/my-calendar`, the associated `ics` can be found at `https://my-website/calendar/my-calendar/index.ics` or `webcal://my-website/calendar/my-calendar/index.ics`.
+- `view`: one among the views listed [here]({{< relref "../blocks/#views" >}}).
+
+The other parameters allow to filter `matches`, and are the same as the ones described in the [`sportchemy-collection`]({{< relref "../blocks/#parameters" >}}). Please refer to that section for the documentation.
+
+### Calendar output
+
+Thanks to Hugo ability to [ouput contents in different formats](https://gohugo.io/templates/output-formats/), if specified through the `output` parameter, an `ics` file is automatically created for each `calendar` page. This file can be imported in a webcal application (such as Google Calendar), so users can add the matches to their own calendars. If the application has the ability to add a calendar from an URL, this is going to be synced with the calendar in the website.  
+
