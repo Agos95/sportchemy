@@ -200,13 +200,45 @@ which is rendered as [this page]({{< relref "../../calendar/nba-calendar" >}}).
 - `outputs`: available outputs for a `calendar` page are:
   - `html` to cretate the webpage.
   - `Calendar` to create the associated `ics` file.
-  
-  If a calendar is displayed at `https://my-website.com/calendar/my-calendar`, the associated `ics` can be found at `https://my-website/calendar/my-calendar/index.ics` or `webcal://my-website/calendar/my-calendar/index.ics`.
 - `view`: one among the views listed [here]({{< relref "../blocks/#views" >}}).
 
 The other parameters allow to filter `matches`, and are the same as the ones described in the [`sportchemy-collection`]({{< relref "../blocks/#parameters" >}}). Please refer to that section for the documentation.
 
 ### Calendar output
 
-Thanks to Hugo ability to [ouput contents in different formats](https://gohugo.io/templates/output-formats/), if specified through the `output` parameter, an `ics` file is automatically created for each `calendar` page. This file can be imported in a webcal application (such as Google Calendar), so users can add the matches to their own calendars. If the application has the ability to add a calendar from an URL, this is going to be synced with the calendar in the website.  
+Thanks to Hugo ability to [ouput content in different formats](https://gohugo.io/templates/output-formats/), if specified through the `output` parameter, an `ics` file is automatically created for each `calendar` page. If the URL for the webpage is `https://my-website.com/calendar/my-calendar`, it is possibile to get the webcal link at one of these addresses:
+1. `https://my-website/calendar/my-calendar/index.ics`
+2. `webcal://my-website/calendar/my-calendar/index.ics`
+
+The `ics` file follows this schema:
+```
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//{Site Title}//{Calendar Title}//{Site Language}
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:{Calendar Title} - {Site Title}
+BEGIN:VEVENT
+UID:{Calendar Date}-{Home Team}-{Away Team}-{Site Title}
+DTSTAMP:{Match Publish Date}
+DTSTART:{Match Time}
+DURATION:PT1H30M
+LOCATION:{Court Name}, {Court Address}
+SUMMARY:{Home Team} vs {Away Team}
+END:VEVENT
+BEGIN:VEVENT
+...
+END:VEVENT
+... other MATCHES in calendar ...
+END:VCALENDAR
+```
+
+All the the timestamps are converted from the site timezone to UTC, since the `ics` file works with UTC time.
+
+This calendar file can be imported in a webcal application (such as Google Calendar), so users can add the matches to their own calendars. If the application has the ability to add a calendar from an URL, this is going to be synced with the calendar in the website.
+
+By default, each `calendar` webpage contains a group of three buttons:
+- `Download ICAL` points to `https://my-website/calendar/my-calendar/index.ics`, and it allows to download the `ics` file, in order to import the events with the selected application
+- `Add to Google Calendar` allows to automatically import the calendar into the user Google Calendar. This is done by contructing the link `https://www.google.com/calendar/render?cid={Permalink}`, where `Permalink` is `webcal://my-website/calendar/my-calendar/index.ics`
+- `Webcal Links` points to `webcal://my-website/calendar/my-calendar/index.ics`; this allows to open the link with the default calendar app in the user device.
 
