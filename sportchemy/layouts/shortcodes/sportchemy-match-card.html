@@ -8,7 +8,7 @@
     Parameters
     ----------
     match :
-        Absolute path to the match file from the "content" directory.
+        Path to the match file from the "content" directory.
     card_class : default "col-lg-4 col-md-6"
         CSS classes for the card div container.
     row_container : default "true"
@@ -23,7 +23,7 @@
 <div class="row justify-content-center">
 {{ end}}
   <div class="{{ $card_class }}">
-      {{ partial "functions/render_view" ( dict "page" "" "item" $match "view" "sportchemy-card-view" "index" 0 ) }}
+      {{ partial "functions/render_view" ( dict "page" (dict "page" "design") "item" $match "view" "sportchemy-card-view" "index" 0 ) }}
   </div>
 {{ if eq (.Get "row_container") "true" }}
 </div>

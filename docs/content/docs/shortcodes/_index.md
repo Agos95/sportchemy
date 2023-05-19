@@ -214,3 +214,28 @@ Then:
 ```
 
 {{<sportchemy-gallery album="players" processing="resize" resize_options="x300" fig_style="margin:5px 0px 5px 0px">}}
+
+
+## Sportchemy Match Card
+
+The `sportchemy-match-card` shortcode is useful to display the [match card]({{< relref "../blocks/#card-view" >}}) of a particular game. For example, this can be included in a post witht the summary of the match.
+
+### Parameters
+
+- *`match`:*
+  Path to the match file from hte `content` directory.
+- *`card_class` : default `"col-lg-4 col-md-6"`*
+  CSS classes for the card `div` container.
+- *`row_container`: default `"true"`*
+  If true, wrap the card div in a row container with central aligment.
+
+### Example
+
+```go
+{{</*sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md"*/>}}
+```
+produces the single card in the [homepage]({{< relref "/#match-card-shortcode" >}}).
+
+{{< callout warning >}}
+This shortcode does not render correctly in the book layout.
+{{</ callout >}}
