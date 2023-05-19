@@ -237,5 +237,7 @@ The `sportchemy-match-card` shortcode is useful to display the [match card]({{< 
 produces the single card in the [homepage]({{< relref "/#match-card-shortcode" >}}).
 
 {{< callout warning >}}
-This shortcode does not render correctly in the book layout.
+This shortcode does not render correctly in the book layout or in posts.
+
+The issue may be related to the `article-container`, and it is being investigated.
 {{</ callout >}}
