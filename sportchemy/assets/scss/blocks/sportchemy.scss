@@ -48,6 +48,10 @@
     .card-link {
         text-decoration: underline;
     }
+    // prevent margin cascade inside <article>
+    img {
+        margin: 0;
+    }
 }
 
 // sportchemy-table view

@@ -232,12 +232,7 @@ The `sportchemy-match-card` shortcode is useful to display the [match card]({{< 
 ### Example
 
 ```go
-{{</*sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md"*/>}}
+{{</*sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md" card_class="col-mnd-8"*/>}}
 ```
-produces the single card in the [homepage]({{< relref "/#match-card-shortcode" >}}).
 
-{{< callout warning >}}
-This shortcode does not render correctly in the book layout or in posts.
-
-The issue may be related to the `article-container`, and it is being investigated.
-{{</ callout >}}
+{{< sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md" card_class="col-md-8">}}
