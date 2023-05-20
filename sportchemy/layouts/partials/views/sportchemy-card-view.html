@@ -22,13 +22,13 @@
       <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
     </div>
     <div class="col-4 card-body">
-      <h3 class="card-title">
+      <p class="h5 card-title">
         {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
           {{ time.Format $time_format $params.date }}
         {{ else }}
           <span class="team-points {{ $matchInfo.classHome }}">{{ $matchInfo.scoreHome }}</span> - <span class="team-points {{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}</span>
         {{ end }}
-      </h3>
+      </p>
       <div class="card-subtitle">
         {{ $params.league | title }}
       </div>
