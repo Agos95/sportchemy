@@ -1,4 +1,4 @@
-{{/* Sportchemy Shortcodes: sportchemy-match-card */}}
+{{/* Sportchemy Shortcodes: sportchemy-match_card */}}
 
 {{/*
     Get the match card associated to the diven match file.
@@ -7,7 +7,7 @@
 {{/*
     Parameters
     ----------
-    match :
+    src :
         Path to the match file from the "content" directory.
     card_class : default "col-lg-4 col-md-6"
         CSS classes for the card div container.
@@ -16,16 +16,18 @@
 
 */}}
 
-{{ $match := site.GetPage ( .Get "match" ) }}
+{{ $match := site.GetPage ( .Get "src" ) }}
 {{ $card_class := .Get "card_class" | default "col-lg-4 col-md-6"}}
 
-{{ if eq (.Get "row_container" | default "true") "true" }}
+{{ $row_container := eq (.Get "row_container" | default "true") "true" }}
+
+{{ if $row_container }}
 <div class="row justify-content-center">
 {{ end}}
   <div class="{{ $card_class }}">
       {{ partial "functions/render_view" ( dict "page" (dict "page" "design") "item" $match "view" "sportchemy-card-view" "index" 0 ) }}
   </div>
-{{ if eq (.Get "row_container") "true" }}
+{{ if $row_container }}
 </div>
 {{ end}}
 

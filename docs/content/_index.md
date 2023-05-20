@@ -20,9 +20,7 @@ sections:
       title: Match Cards
       subtitle:
       text_below: |
-        <p id="match-card-shortcode">A match card is also available as shortcode; this is useful to display information about a single game (for example in a post):</p>
-
-        {{<sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md">}}
+        A single match card can be displayed using the `sportchemy-match-card` shortcode. For example, this a be useful to show it in a post!
       page_type: match
       # Choose how many pages you would like to display (0 = all pages)
       count: 6

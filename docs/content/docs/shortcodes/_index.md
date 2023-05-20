@@ -222,8 +222,8 @@ The `sportchemy-match-card` shortcode is useful to display the [match card]({{< 
 
 ### Parameters
 
-- *`match`:*
-  Path to the match file from hte `content` directory.
+- *`src`:*
+  Path to the match file from the `content` directory.
 - *`card_class` : default `"col-lg-4 col-md-6"`*
   CSS classes for the card `div` container.
 - *`row_container`: default `"true"`*
@@ -232,7 +232,27 @@ The `sportchemy-match-card` shortcode is useful to display the [match card]({{< 
 ### Example
 
 ```go
-{{</*sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md" card_class="col-mnd-8"*/>}}
+{{</*sportchemy-match_card src="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md" card_class="col-md-8"*/>}}
 ```
 
-{{< sportchemy-match-card match="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md" card_class="col-md-8">}}
+{{< sportchemy-match_card src="match/2022-23/NBA/Regular Season/2022-10-19 19-30_Chicago Bulls-Miami Heat.md" card_class="col-md-8">}}
+
+
+## Sportchemy Share Calendar
+
+Sportchemy [Calendar]({{< relref "../archetypes/#calendar" >}}) page automatically creates a sharable `ics` file, which can be both downloaded or incoporated in Google Calendar.  
+The `sportchemy-share_calendar` shortcode displays the sharing buttons of a specific calendar.
+
+### Parameters
+
+- *`src`:*
+  Path to the calendar file from the `content` directory
+
+### Example
+
+```go
+{{</*sportchemy-share_calendar src="calendar/nba-calendar"*/>}}
+```
+shows the sharing buttons of the [example calendar]({{< relref "/calendar/nba-calendar" >}}):
+
+{{< sportchemy-share_calendar src="calendar/nba-calendar" >}}
