@@ -1,7 +1,7 @@
 ---
 title: Philadelphia 76ers vs Indiana Pacers
 summary: null
-date: '2091-10-29 19:00:00'
+date: '2091-10-29 19:30:00'
 home:
   name: Philadelphia 76ers
   logo: null
