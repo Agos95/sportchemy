@@ -222,11 +222,11 @@ The `sportchemy-match-card` shortcode is useful to display the [match card]({{< 
 
 ### Parameters
 
-- *`src`:*
+- *`src` :*  
   Path to the match file from the `content` directory.
-- *`card_class` : default `"col-lg-4 col-md-6"`*
+- *`card_class` : default `"col-lg-4 col-md-6"`*  
   CSS classes for the card `div` container.
-- *`row_container`: default `"true"`*
+- *`row_container` : default `"true"`*  
   If true, wrap the card div in a row container with central aligment.
 
 ### Example
@@ -245,7 +245,7 @@ The `sportchemy-share_calendar` shortcode displays the sharing buttons of a spec
 
 ### Parameters
 
-- *`src`:*
+- *`src` :*  
   Path to the calendar file from the `content` directory
 
 ### Example
