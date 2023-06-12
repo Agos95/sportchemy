@@ -65,6 +65,8 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
   If `"true"`, add the class `table-sm`, to make the table more compact by cutting cell padding in half.
 - *`halign` : default `"left"`*  
   Horizontal text alignment for the table. If passed, must be one of [`"left"`, `"center"`, `"right"`], otherwise it defaults to `"left"`.
+- *`class` : optional*  
+  Custom class to add in addition to `sportchemy-table`.
 - *`id` : optional*  
   Specific id for the table, useful for targetting the specifc table with CSS.
 
@@ -96,6 +98,8 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
   If `"true"`, add the class `table-sm`, to make the table more compact by cutting cell padding in half.
 - *`noheader`* :  
   If present, the header is removed. This is useful for markdown tables without header, since Hugo always renders table with it.
+- *`class` : optional*  
+  Custom class to add in addition to `sportchemy-gallery`.
 - *`id` : optional*  
   Specific id for the table, useful for targetting the specifc table with CSS.
 
@@ -172,8 +176,10 @@ All the galleries created with this shortcode inherit the `sportchemy-gallery` C
 - *`img_style` : default `"max-height:300px;"`*  
   Additional style parameters for each `<img>` tag.
   To have a better results, the advice is to set max-height a bit lower than the resize option.
+- *`class` : optional*  
+  Custom class to add in addition to `sportchemy-gallery`.
 - *`id` : optional*  
-  Specific id for the table, useful for targetting the specifc gallery with CSS.
+  Specific id for the gallery, useful for targetting the specifc gallery with CSS.
 - *`fancybox` : default `"true"`*  
   Add fancybox css and js.  
   In case of multiple galleries in the same page, you can set it to false to avoid multiple imports.

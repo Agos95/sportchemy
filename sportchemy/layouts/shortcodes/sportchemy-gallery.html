@@ -35,8 +35,10 @@
     img_style : default "max-height:300px;"
         Additional style parameters for each <img> tag.
         To have a better results, the advice is to set max-height a bit lower than the resize option.
+    class : optional
+        Custom class to add in addition to 'sportchemy-gallery'
     id : optional
-        Specific id for the table, useful for targetting the specifc table with CSS.
+        Specific id for the gallery, useful for targetting the specifc gallery with CSS.
     fancybox : default "true"
         Add fancybox css and js. In case of multiple galleries in the same page,
         you can set it to false to avoid multiple imports.
@@ -71,8 +73,11 @@
 {{ $fig_style := .Get "fig_style" }}
 {{ $img_style := .Get "img_style" | default "max-height:300px;"}}
 
+{{ $gallery_class := "sportchemy-gallery" }}
+{{ with .Get "class" }} {{ $gallery_class = printf "%s %s" $gallery_class .}} {{ end }}
 
-<div class="sportchemy-gallery" {{ with .Get "id" }}id="."{{ end }}>
+
+<div class={{$gallery_class}} {{ with .Get "id" }}id="."{{ end }}>
 
     {{/* Attempt to automatically load gallery images from page bundle */}}
     {{ $images := resources.Match $album_path }}

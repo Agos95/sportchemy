@@ -39,6 +39,8 @@
     halign : default "left"
         Horizontal text alignment for the table.
         If passed, must be one of ["left", "center", "right"], otherwise it defaults to "left".
+    class : optional
+        Custom class to add in addition to 'sportchemy-table'
     id : optional
         Specific id for the table, useful for targetting the specifc table with CSS.
 */}}
@@ -56,6 +58,7 @@
 {{/* Add additional bootstrap classes if requested. */}}
 
 {{ $table_class := "table sportchemy-table" }}
+{{ with .Get "class" }} {{ $table_class = printf "%s %s" $table_class .}} {{ end }}
 {{ if (eq (.Get "striped" | default "true") "true") }}
     {{ $table_class = printf "%s table-striped" $table_class }}
 {{ end }}
@@ -84,11 +87,8 @@
     {{ $halign = printf "text-align:%s;" $halign}}
 {{ end }}
 
-{{/* id */}}
-{{ $id := (.Get "id" | default "") }}
-
 {{/* Add bootstrap responsive table class to enable horizontal scrolling in small screens. */}}
-<table class={{$table_class}} {{ with $halign }}style="{{.|safeCSS}}"{{ end }} {{ with $id }}id="."{{ end }}>
+<table class={{$table_class}} {{ with $halign }}style="{{.|safeCSS}}"{{ end }} {{ with .Get "id" }}id="."{{ end }}>
     {{ if $useHeaderRow }}
         {{ $headerRow := index $rows 0 }}
         {{ $rows = after 1 $rows }}
