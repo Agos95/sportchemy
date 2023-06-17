@@ -15,6 +15,7 @@
   </td>
   <td class="team-logo"> <img src={{ $matchInfo.logoHome }}> </td>
   <td class="team-points">
+    {{/* TODO: 0 is equal to "" -> need to fix */}}
     {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
       <span>{{ time.Format $time_format $params.date }}</span>
     {{ else }}
