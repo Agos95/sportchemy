@@ -8,6 +8,8 @@
   translation: Court
 - id: sportchemy_league
   translation: League
+- id: sportchemy_no_games
+  translation: No games scheduled
 - id: sportchemy_score
   translation: Score
 - id: sportchemy_team_away
