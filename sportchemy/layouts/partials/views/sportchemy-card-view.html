@@ -23,7 +23,7 @@
     </div>
     <div class="col-4 card-body">
       <p class="h5 card-title">
-        {{ if (eq $matchInfo.scoreHome "") | or (eq $matchInfo.scoreAway "")}}
+        {{ if (lt $matchInfo.scoreHome 0) | or (lt $matchInfo.scoreAway 0)}}
           {{ time.Format $time_format $params.date }}
         {{ else }}
           <span class="team-points {{ $matchInfo.classHome }}">{{ $matchInfo.scoreHome }}</span> - <span class="team-points {{ $matchInfo.classAway }}">{{ $matchInfo.scoreAway }}</span>

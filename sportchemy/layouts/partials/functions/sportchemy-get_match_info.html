@@ -33,9 +33,9 @@
 {{ $params := . }}
 
 {{/* Get winner */}}
-
-{{ $scoreHome := $params.score.home | default "" }}
-{{ $scoreAway := $params.score.away | default "" }}
+{{/* Need to convert first as str and then as int, otherwise 0 is threated as empty */}}
+{{ $scoreHome := int (string $params.score.home | default -1) }}
+{{ $scoreAway := int (string $params.score.away | default -1) }}
 
 {{ $classHome := "" }}
 {{ $classAway := "" }}
