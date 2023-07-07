@@ -18,8 +18,12 @@
         font-size: medium;
     }
 
-    .team-logo {
-        width: 40%;
+    div.col.team-logo {
+        height: 2.5rem;
+    }
+
+    img.team-logo {
+        max-height: 90%;
         display: inline;
         padding-top: .25rem;
         object-fit: contain;

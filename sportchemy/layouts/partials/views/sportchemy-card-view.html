@@ -14,12 +14,20 @@
   </div>
   <div class="row no-gutters align-items-start justify-content-center">
     <div class="col-4 order-first">
-      <img src={{ $matchInfo.logoHome }} class="team-logo"><br>
-      <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>
+      <div class="col team-logo">
+        <img src={{ $matchInfo.logoHome }} class="team-logo">
+      </div>
+      <div class="col">
+        <p class="team-name {{ $matchInfo.classHome }}">{{ $params.home.name }}</p>
+      </div>
     </div>
     <div class="col-4 order-last">
-      <img src={{ $matchInfo.logoAway }} class="team-logo"><br>
-      <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
+      <div class="col team-logo">
+        <img src={{ $matchInfo.logoAway }} class="team-logo">
+      </div>
+      <div class="col">
+        <p class="team-name {{ $matchInfo.classAway }}">{{ $params.away.name }}</p>
+      </div>
     </div>
     <div class="col-4 card-body">
       <p class="h5 card-title">
