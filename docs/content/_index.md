@@ -20,7 +20,7 @@ sections:
       title: Match Cards
       subtitle:
       text_below: |
-        A single match card can be displayed using the `sportchemy-match-card` shortcode. For example, this a be useful to show it in a post!
+        A single match card can be displayed using the `sportchemy-match-card` shortcode. For example, this can be useful to show it in a post!
       page_type: match
       # Choose how many pages you would like to display (0 = all pages)
       count: 6
