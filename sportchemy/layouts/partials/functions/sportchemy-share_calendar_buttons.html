@@ -14,13 +14,13 @@
 {{ $calendar := site.GetPage . }}
 {{ with $calendar.OutputFormats.Get "calendar" -}}
   <div class="sportchemy-buttons">
-      <a href="{{ .RelPermalink }}" role="button" target="_blank" rel="noopener" class="btn btn-primary sportchemy-btn">
+      <a href="{{ .RelPermalink }}" role="button" target="_blank" rel="noopener" class="btn btn-primary px-3 py-3 sportchemy-btn">
         <i class="fa-solid fa-download"></i></i> Download ICAL
       </a>
-      <a href="https://www.google.com/calendar/render?cid={{ .Permalink }}" target="_blank" rel="noopener" role="button" class="btn btn-primary sportchemy-btn">
+      <a href="https://www.google.com/calendar/render?cid={{ .Permalink }}" target="_blank" rel="noopener" role="button" class="btn btn-primary px-3 py-3 sportchemy-btn">
         <i class="fa-solid fa-calendar-plus"></i> {{ i18n "sportchemy_add_to" | default "Add to" }} <i class="fa-brands fa-google"></i> Calendar
       </a>
-      <button class="btn btn-primary sportchemy-btn" type="button" onclick="copy_weblink()" title="{{ i18n "sportchemy_copied" | default "Copied!" }}" data-toggle="tooltip" data-trigger="click" data-placement="bottom" data-custom-class="sportchemy-tooltip">
+      <button class="btn btn-primary px-3 py-3 sportchemy-btn" type="button" onclick="copy_weblink()" title="{{ i18n "sportchemy_copied" | default "Copied!" }}" data-toggle="tooltip" data-trigger="click" data-placement="bottom" data-custom-class="sportchemy-tooltip">
         <i class="fa-solid fa-copy"></i> Webcal Link
       </button>
   </div>
