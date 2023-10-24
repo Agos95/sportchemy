@@ -46,14 +46,14 @@
     {{ if not (in "sm md lg xl" $responsive) }}
         {{ $responsive = "md"}}
     {{ end }}
-    {{ $table_class = printf "%s table-responsive-%s" $table_class $responsive }}
+    {{ $responsive = printf "table-responsive-%s" $responsive }}
 {{ end }}
 {{ if (eq (.Get "small" | default "false") "true") }}
     {{ $table_class = printf "%s table-sm" $table_class }}
 {{ end }}
 
 {{/* Get table content and add requested classes */}}
-
+{{ if $responsive }}<div class={{$responsive}}>{{ end }}
 {{ $table := .Inner | markdownify }}
 {{ $attributes := printf "class=\"%s\"" $table_class }}
 {{ with .Get "id" }}{{ $attributes = printf "%s id=\"%s\"" . }}{{ end }}
@@ -63,4 +63,5 @@
     {{ $table = replace $table $thead "" }}
 {{ end }}
 {{ $table | safeHTML }}
+{{ if $responsive }}</div>{{ end }}
 

@@ -1,24 +1,26 @@
 {{ $query := .query }}
 {{ $block := .block }}
 
-<table class="table sportchemy-table table-striped table-hover table-responsive-md">
-  <thead>
-    <tr>
-      <th>{{ i18n "sportchemy_date"      | default "Date"  }}</th>
-      <th>{{ i18n "sportchemy_team_home" | default "Home"  }}</th>
-      <th></th> <!-- Home Team Logo -->
-      <th>{{ i18n "sportchemy_score"     | default "Score" }}</th>
-      <th></th> <!-- Away Team Logo -->
-      <th>{{ i18n "sportchemy_team_away" | default "Away"  }}</th>
-      <th>{{ i18n "sportchemy_court"     | default "Court" }}</th>
-      {{ if $block.design.view_params.show_league }}
-      <th>{{ i18n "sportchemy_league"    | default "League" }}</th>
-      {{ end }}
-    </tr>
-  </thead>
-  <tbody>
-    {{ range $index, $item := $query }}
-      {{ partial "functions/render_view" ( dict "page" $block "item" . "view" $.view "index" $index ) }}
-    {{end}}
-  </tbody>
-</table>
+<div class="table-responsive-md">
+  <table class="table sportchemy-table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>{{ i18n "sportchemy_date"      | default "Date"  }}</th>
+        <th>{{ i18n "sportchemy_team_home" | default "Home"  }}</th>
+        <th></th> <!-- Home Team Logo -->
+        <th>{{ i18n "sportchemy_score"     | default "Score" }}</th>
+        <th></th> <!-- Away Team Logo -->
+        <th>{{ i18n "sportchemy_team_away" | default "Away"  }}</th>
+        <th>{{ i18n "sportchemy_court"     | default "Court" }}</th>
+        {{ if $block.design.view_params.show_league }}
+        <th>{{ i18n "sportchemy_league"    | default "League" }}</th>
+        {{ end }}
+      </tr>
+    </thead>
+    <tbody>
+      {{ range $index, $item := $query }}
+        {{ partial "functions/render_view" ( dict "page" $block "item" . "view" $.view "index" $index ) }}
+      {{end}}
+    </tbody>
+  </table>
+</div>
