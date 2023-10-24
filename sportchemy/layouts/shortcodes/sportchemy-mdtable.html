@@ -58,7 +58,7 @@
 {{ $attributes := printf "class=\"%s\"" $table_class }}
 {{ with .Get "id" }}{{ $attributes = printf "%s id=\"%s\"" . }}{{ end }}
 {{ $table = replace $table "<table>" (printf "<table %s>" $attributes ) }}
-{{ if ("noheader" | in .Params) }}
+{{ if (.Get "noheader" | or (in .Params "noheader")) }}
     {{ $thead := index (findRE `(?s)<thead>.*</thead>` $table 1) 0 }}
     {{ $table = replace $table $thead "" }}
 {{ end }}

@@ -97,7 +97,12 @@ All the tables create with this shortcode inherit the `sportchemy-table` CSS cla
 - *`small` : default `"false"`*  
   If `"true"`, add the class `table-sm`, to make the table more compact by cutting cell padding in half.
 - *`noheader`* :  
-  If present, the header is removed. This is useful for markdown tables without header, since Hugo always renders table with it.
+  If present, the header is removed. This is useful for markdown tables without header, since Hugo always renders table with it.  
+  {{< callout warning >}}
+  <div style="font-size:medium">
+  Since it is not possible to mix positional and named parameters in Hugo, you can pass <code>noheader="true"</code> to activate this option in conjuctions with other parameters.
+  </div>
+  {{</ callout >}}
 - *`class` : optional*  
   Custom class to add in addition to `sportchemy-gallery`.
 - *`id` : optional*  
